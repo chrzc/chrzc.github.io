@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>配置SSH和hexo发布文章 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="##配置SSH在git中执行下面命令生成SSH  ssh-keygen   敲3次回车 生成id_rsa.pub,记事本打开复制SSH key的内容 打开github，点击setting-SSH keys— Add SSH 把复制的内容粘贴到下面框中，title随便填写  判断SSH是否配置好   ssh -T git@github.com  若出现Hi XX! You&amp;#39;ve succes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="配置SSH和hexo发布文章">
+<meta property="og:url" content="http://yoursite.com/2017/09/25/还没有想好/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="##配置SSH在git中执行下面命令生成SSH  ssh-keygen   敲3次回车 生成id_rsa.pub,记事本打开复制SSH key的内容 打开github，点击setting-SSH keys— Add SSH 把复制的内容粘贴到下面框中，title随便填写  判断SSH是否配置好   ssh -T git@github.com  若出现Hi XX! You&amp;#39;ve succes">
+<meta property="og:updated_time" content="2017-09-25T08:00:39.870Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="配置SSH和hexo发布文章">
+<meta name="twitter:description" content="##配置SSH在git中执行下面命令生成SSH  ssh-keygen   敲3次回车 生成id_rsa.pub,记事本打开复制SSH key的内容 打开github，点击setting-SSH keys— Add SSH 把复制的内容粘贴到下面框中，title随便填写  判断SSH是否配置好   ssh -T git@github.com  若出现Hi XX! You&amp;#39;ve succes">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -149,16 +153,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-还没有想好" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-还没有想好" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/25/还没有想好/">配置SSH和hexo发布文章</a>
+    <h1 class="article-title" itemprop="name">
+      配置SSH和hexo发布文章
     </h1>
   
 
@@ -197,6 +199,27 @@ hexo deploy</code>就可以发布了</p>
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -204,16 +227,75 @@ hexo deploy</code>就可以发布了</p>
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/25/还没有想好/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/25/还没有想好/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/12/stan-first-blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何利用hexo和github建立自己的网站</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -233,113 +315,14 @@ hexo deploy</code>就可以发布了</p>
 
 
 
-
   
-    <article id="post-stan-first-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/12/stan-first-blog/">如何利用hexo和github建立自己的网站</a>
-    </h1>
   
 
-        
-        <a href="/2017/09/12/stan-first-blog/" class="archive-article-date">
-  	<time datetime="2017-09-12T10:54:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="经过各种坑，我自己的第一篇个人网站博客终于到了正题了。话不多说，先介绍如何利用hexo搭建自己的个人网站。"><a href="#经过各种坑，我自己的第一篇个人网站博客终于到了正题了。话不多说，先介绍如何利用hexo搭建自己的个人网站。" class="headerlink" title="经过各种坑，我自己的第一篇个人网站博客终于到了正题了。话不多说，先介绍如何利用hexo搭建自己的个人网站。"></a>经过各种坑，我自己的第一篇个人网站博客终于到了正题了。话不多说，先介绍如何利用hexo搭建自己的个人网站。</h2><ul>
-<li>配置环境</li>
-<li><code>node.js</code> <code>github</code> <code>git</code> </li>
-<li>你需要一个GitHub账户，网站地址是：www.github.com 建议配置ssh keys 这样每次上传都不必手动输入密码了（有时间我下篇写如何配置ssh）</li>
-<li>安装桌面版GitHub会自带git（需要到指定位置运行) win10 bash也带有git  git也可单独下载</li>
-<li>安装hexo 官网<a href="http://hexo.io/" title="hexo" target="_blank" rel="external">http://hexo.io/</a> 在node和git都安装好了 进入git hexo官网最下面 5条语句 依次输入</li>
-<li><p>下一步执行</p>
-<blockquote>
-<p>hexo server<br>若报错，则执行命令$ sudo npm install hexo-server</p>
-</blockquote>
-</li>
-<li><p>重试，出现INFO Hexo is running at <a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a>. Press Ctrl+C to stop.则表明成功在本地运行</p>
-</li>
-<li>注：若安装福昕pdf，则可能无法运行，因为端口4000被其占用，改成hexo s -p 5000即可访问</li>
-</ul>
-<h1 id="与github关联"><a href="#与github关联" class="headerlink" title="与github关联"></a>与github关联</h1><ul>
-<li>建立repository</li>
-<li>建立与你用户名对应的仓库，仓库名为<strong>[user_name.github.io]</strong> 例，我的用户名是chrzc 则我建立的仓库名是[chrzc.github.io]</li>
-<li>进入你的本地blog文件存放位置，修改_config.yml文件，把最下面的改成<br><code>deploy:
-type: git
-repository: https://github.com/leopardpan/leopardpan.github.io.git
-branch: master</code></li>
-<li>执行 npm install hexo-deployer-git –save</li>
-<li>hexo deploy</li>
-<li>在浏览器中输入[user_name.github.io]就行了<h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1></li>
-</ul>
-<ol>
-<li>hexo clean</li>
-<li>hexo generate</li>
-<li>hexo deploy</li>
-</ol>
-<hr>
-<ul>
-<li>常用语法</li>
-<li>hexo new “postName” #新建文章</li>
-<li>hexo new page “pageName” #新建页面</li>
-<li>hexo generate #生成静态页面至public目录</li>
-<li>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）</li>
-<li>hexo deploy #将.deploy目录部署到GitHub</li>
-<li>hexo help  #查看帮助</li>
-<li>hexo version  #查看Hexo的版本</li>
-<li><em>推荐使用markdown软件编辑文章，我用的是markdownpad 2</em></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/12/stan-first-blog/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
+  
 
   
+
   
 
 
@@ -362,8 +345,8 @@ branch: master</code></li>
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
