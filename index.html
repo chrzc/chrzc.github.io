@@ -42,7 +42,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="https://ooo.0o0.ooo/2017/09/25/59c8cedaf3f31.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="">stan</a></h1>
@@ -76,13 +76,11 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
-		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="qq" target="_blank" href="/879852715" title="qq"><i class="icon-qq"></i></a>
+		        
+					<a class="mail" target="_blank" href="/879852715@qq.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -100,7 +98,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="https://ooo.0o0.ooo/2017/09/25/59c8cedaf3f31.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">stan</h1>
@@ -117,13 +115,11 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
-			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="qq" target="_blank" href="/879852715" title="qq"><i class="icon-qq"></i></a>
+			        
+						<a class="mail" target="_blank" href="/879852715@qq.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -151,19 +147,102 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-还没有想好" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-机器学习基本教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/25/还没有想好/">配置SSH和hexo发布文章</a>
+      <a class="article-title" href="/2017/09/25/机器学习基本教程/">分类器评估方法对比</a>
     </h1>
   
 
         
-        <a href="/2017/09/25/还没有想好/" class="archive-article-date">
+        <a href="/2017/09/25/机器学习基本教程/" class="archive-article-date">
+  	<time datetime="2017-09-25T13:57:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以一个有监督的二分类模型，模型对每个样本的预测为一个概率值，我们需选取一个阈值来区分好坏用户</p>
+<p>假定我们已经定好了一个阈值，超过此阈值定义为（目标用户）1，低于此阈值定义为非目标用户（0），就可以计算出混淆矩阵(confusion matrix)<br><img src="https://i.loli.net/2017/09/25/59c912b51be23.png" alt=""></p>
+<p>由上图我们可以得出TP.TN.FP.FN四个值。</p>
+<ul>
+<li>precision:TP/(TP+FP)</li>
+<li>recall:TP/(TP+FN)</li>
+<li>F1:precision和recall的调和均值F1=2PR/(P+R) 相当于综合指标</li>
+<li>Fα:F1的变体，Fα = (α^2+1)PR/(α^2P+R) 利用α给P、R赋不同权重</li>
+</ul>
+<p>ROC曲线（receiver operating characteristing curve):是由多个混淆矩阵的结果组合，若在上述模型中没有定义好阈值，而是将模型预测结果从高到低排序，将每个概率值依次作为阈值，那么就要多个混淆矩阵。</p>
+<p>对于每个混淆矩阵，计算2个指标:</p>
+<ul>
+<li>TPR(True positive rate): TP/(TP+FN),即为recall </li>
+<li>FPR(False positive rate): <strong>FP/(FP+TN)</strong>,非目标中，预测为目标的占比</li>
+<li>即TPR越高越好，FPR越低越好</li>
+<li>我们以FPR为X轴，TPR为y轴画图，得到了ROC曲线<br><img src="https://i.loli.net/2017/09/26/59c93b88db207.png" alt=""></li>
+</ul>
+<p>在画ROC曲线的过程中，若有一个阈值，高于此阈值的均为目标，低于这个阈值的均非目标，则该模型完美。ROC曲线经过（0,1）</p>
+<p>AUC（Area Under Curve）的值为ROC曲线下面的面积，若上述模型十分准确，AUC为1。一般模型为0.5~1之间，AUC越高，模型区分能力越好。</p>
+<p>Gini系数: 指ROC曲线与中线围成的面积和中线之上的面积与中线之下的面积（0.5）的比例，换算公式为Gini = 2*AUC-1</p>
+<p>KS(Kolmogorov-Smirnov)：KS=max(TPR-FRR),可以反映模型的最优区分效果，此时所取的阈值一般为最优阈值   </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/25/机器学习基本教程/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-配置ssh和写文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/25/配置ssh和写文章/">配置SSH和hexo发布文章</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/25/配置ssh和写文章/" class="archive-article-date">
   	<time datetime="2017-09-25T06:50:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-25</time>
 </a>
         
@@ -189,7 +268,8 @@
 <p>hexo new “title”</p>
 </blockquote>
 <p>在本地hexo-&gt;source-&gt;_post目录下可以看到你新建的文章</p>
-<p>之后可以利用markdown编辑器编辑文章<a href="http://www.appinn.com/markdown/" title="markdown语法说明（简体中文版）" target="_blank" rel="external">http://www.appinn.com/markdown/</a></p>
+<p>之后可以利用markdown编辑器编辑文章 <a href="http://www.appinn.com/markdown/" title="markdown语法说明（简体中文版）" target="_blank" rel="external">http://www.appinn.com/markdown/</a></p>
+<p>在文章中插入图片和修改图片，推荐使用图库，域名[sm.ms]</p>
 <p>写好了 在git中依次执行<code>hexo clean
 hexo generate
 hexo deploy</code>就可以发布了</p>
@@ -205,7 +285,7 @@ hexo deploy</code>就可以发布了</p>
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/25/还没有想好/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/09/25/配置ssh和写文章/">展开全文 >></a>
         </p>
       
 
@@ -367,7 +447,7 @@ branch: master</code></li>
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false,
+		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
