@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>如何利用hexo和github建立自己的网站 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先，你需要一个github账号 访问github.com注册">
+  <meta name="description" content="经过各种坑，我自己的第一篇个人网站博客终于到了正题了。话不多说，先介绍如何利用hexo搭建自己的个人网站。 配置环境 node.js github git  你需要一个GitHub账户，网站地址是：www.github.com 建议配置ssh keys 这样每次上传都不必手动输入密码了（有时间我下篇写如何配置ssh） 安装桌面版GitHub会自带git（需要到指定位置运行) win10 bash也">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何利用hexo和github建立自己的网站">
 <meta property="og:url" content="http://yoursite.com/2017/09/12/stan-first-blog/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="首先，你需要一个github账号 访问github.com注册">
-<meta property="og:updated_time" content="2017-09-12T11:02:16.253Z">
+<meta property="og:description" content="经过各种坑，我自己的第一篇个人网站博客终于到了正题了。话不多说，先介绍如何利用hexo搭建自己的个人网站。 配置环境 node.js github git  你需要一个GitHub账户，网站地址是：www.github.com 建议配置ssh keys 这样每次上传都不必手动输入密码了（有时间我下篇写如何配置ssh） 安装桌面版GitHub会自带git（需要到指定位置运行) win10 bash也">
+<meta property="og:updated_time" content="2017-09-25T04:01:05.551Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何利用hexo和github建立自己的网站">
-<meta name="twitter:description" content="首先，你需要一个github账号 访问github.com注册">
+<meta name="twitter:description" content="经过各种坑，我自己的第一篇个人网站博客终于到了正题了。话不多说，先介绍如何利用hexo搭建自己的个人网站。 配置环境 node.js github git  你需要一个GitHub账户，网站地址是：www.github.com 建议配置ssh keys 这样每次上传都不必手动输入密码了（有时间我下篇写如何配置ssh） 安装桌面版GitHub会自带git（需要到指定位置运行) win10 bash也">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -49,7 +49,7 @@
 			<img src="" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="">John Doe</a></h1>
+		  <h1 class="header-author"><a href="">stan</a></h1>
 		</hgroup>
 		
 
@@ -107,7 +107,7 @@
 				<img src="" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">John Doe</h1>
+			  <h1 class="header-author js-header-author">stan</h1>
 			</hgroup>
 			
 			
@@ -173,9 +173,48 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>首先，你需要一个github账号 访问github.com注册</li>
-<li></li>
+        <h2 id="经过各种坑，我自己的第一篇个人网站博客终于到了正题了。话不多说，先介绍如何利用hexo搭建自己的个人网站。"><a href="#经过各种坑，我自己的第一篇个人网站博客终于到了正题了。话不多说，先介绍如何利用hexo搭建自己的个人网站。" class="headerlink" title="经过各种坑，我自己的第一篇个人网站博客终于到了正题了。话不多说，先介绍如何利用hexo搭建自己的个人网站。"></a>经过各种坑，我自己的第一篇个人网站博客终于到了正题了。话不多说，先介绍如何利用hexo搭建自己的个人网站。</h2><ul>
+<li>配置环境</li>
+<li><code>node.js</code> <code>github</code> <code>git</code> </li>
+<li>你需要一个GitHub账户，网站地址是：www.github.com 建议配置ssh keys 这样每次上传都不必手动输入密码了（有时间我下篇写如何配置ssh）</li>
+<li>安装桌面版GitHub会自带git（需要到指定位置运行) win10 bash也带有git  git也可单独下载</li>
+<li>安装hexo 官网<a href="http://hexo.io/" title="hexo" target="_blank" rel="external">http://hexo.io/</a> 在node和git都安装好了 进入git hexo官网最下面 5条语句 依次输入</li>
+<li><p>下一步执行</p>
+<blockquote>
+<p>hexo server<br>若报错，则执行命令$ sudo npm install hexo-server</p>
+</blockquote>
+</li>
+<li><p>重试，出现INFO Hexo is running at <a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a>. Press Ctrl+C to stop.则表明成功在本地运行</p>
+</li>
+<li>注：若安装福昕pdf，则可能无法运行，因为端口4000被其占用，改成hexo s -p 5000即可访问</li>
+</ul>
+<h1 id="与github关联"><a href="#与github关联" class="headerlink" title="与github关联"></a>与github关联</h1><ul>
+<li>建立repository</li>
+<li>建立与你用户名对应的仓库，仓库名为<strong>[user_name.github.io]</strong> 例，我的用户名是chrzc 则我建立的仓库名是[chrzc.github.io]</li>
+<li>进入你的本地blog文件存放位置，修改_config.yml文件，把最下面的改成<br><code>deploy:
+type: git
+repository: https://github.com/leopardpan/leopardpan.github.io.git
+branch: master</code></li>
+<li>执行 npm install hexo-deployer-git –save</li>
+<li>hexo deploy</li>
+<li>在浏览器中输入[user_name.github.io]就行了<h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1></li>
+</ul>
+<ol>
+<li>hexo clean</li>
+<li>hexo generate</li>
+<li>hexo deploy</li>
+</ol>
+<hr>
+<ul>
+<li>常用语法</li>
+<li>hexo new “postName” #新建文章</li>
+<li>hexo new page “pageName” #新建页面</li>
+<li>hexo generate #生成静态页面至public目录</li>
+<li>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）</li>
+<li>hexo deploy #将.deploy目录部署到GitHub</li>
+<li>hexo help  #查看帮助</li>
+<li>hexo version  #查看Hexo的版本</li>
+<li><em>推荐使用markdown软件编辑文章，我用的是markdownpad 2</em></li>
 </ul>
 
       
@@ -305,7 +344,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 John Doe
+    		&copy; 2017 stan
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
