@@ -147,6 +147,116 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-机器学习经历一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/30/机器学习经历一/">jdata</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/30/机器学习经历一/" class="archive-article-date">
+  	<time datetime="2017-09-30T10:35:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JDATA-腾讯广告赛"><a href="#JDATA-腾讯广告赛" class="headerlink" title="JDATA 腾讯广告赛"></a>JDATA 腾讯广告赛</h1><ul>
+<li>本文是京东JData算法大赛-高潜用户购买意向预测和腾讯社交广告高校算法大赛的经历和总结</li>
+</ul>
+<h2 id="JDATA"><a href="#JDATA" class="headerlink" title="JDATA"></a>JDATA</h2><ul>
+<li>任务：通过数据挖掘的技术和机器学习的算法，构建用户购买商品的预测模型，输出高潜用户和目标商品的匹配结果，为精准营销提供高质量的目标群体</li>
+<li>参赛队伍4240 我的排名342<br><img src="https://i.loli.net/2017/09/30/59cf7b4c433d3.png" alt=""></li>
+</ul>
+<p>JDATA算是我第一次参加的大型带奖金比赛 =#= 大约是2017.4月我被我的好友<strong>加强版动感超人</strong>拉入机器学习的坑。然后推荐我去kaggle打入门的house prices和digit recognizer。这时候JDATA已经开赛了，但萌新入门，完全不会。</p>
+<p>还是先看kaggle上的kernels做入门题吧。4.16把houseprice做到1100名。在做house price时还不会处理非数值型数据，就简单把数值型的筛出来，然后用SVM跑了下。pandas也基本不会用（当时只是会python基础语法）。代码仅仅50行吧。</p>
+<p>好歹有了点成绩，虽然很烂，但也可以稍稍激励下自己嘛。digit recognizer 到没有做出来，debug也不成功，放弃了。</p>
+<p>这时候，JDATA也开了3星期左右了。 想着混混感受下氛围的原则，下载数据，准备开搞。在群里潜水了一段时间，发现有规则和模型2条路。模型，暂时不会用，先试试规则吧。比如前几周加到购物车但没有购买的，作为目标用户的购买意向物品。试了几个，发现效果还可以，最好的提交排名达到了600名。怎么办，语法有瓶颈而且规则确实不熟悉，不知道该怎么提分了。还是看看模型吧。</p>
+<p>数据放在几个表里，怎么才能提到一起呢，merge一下。非数值型的如月份怎么办，先不管，凉拌，把数值型的弄到一起，用svm和linear regression跑了下 == 不出所料，很烂。这时候知识不够了，上网看看有人介绍思路没。发现了个时间滑动窗口特征的构造。（那个时候还不会自己写，于是找了个处理时间的框架，把代码改了用）。好了，时间处理好了。模型跑一跑，吐血，还是不怎么样，没有到前500。看了下群里推荐xgboost（当时也不了解这是什么，只知道这个工具包很厉害）。想着，下载安装跑一遍，看看效果。结果安装xgboost就让我弄了2天 = =（拖延症 + 烦躁）。好了， 开始运行（也不会调参），发现我的8G内存跑的炸了- -</p>
+<p>好吧，不能全数据跑，就截取几个时间点做train吧。然后请教了下别人设置的参数，直接放进去（别打我),再加上debug看kernel，进复赛了 （开心！) </p>
+<p>然而发现复赛数据集实在是大，放弃继续弄JDATA了。</p>
+<h2 id="腾讯社交广告赛"><a href="#腾讯社交广告赛" class="headerlink" title="腾讯社交广告赛"></a>腾讯社交广告赛</h2><ul>
+<li><p>任务：预测App广告点击后被激活的概率：pCVR=P(conversion=1 | Ad,User,Context)，即给定广告、用户和上下文情况下广告被点击后发生激活的概率。</p>
+</li>
+<li><p>1500个参赛队 排名120<br><img src="https://i.loli.net/2017/09/30/59cf879af1eea.png" alt=""><br><img src="https://i.loli.net/2017/09/30/59cf87879b054.png" alt=""></p>
+</li>
+</ul>
+<p>这是紧接着JDATA后的比赛，推荐算法类的。在打完JDATA后，知道了如何建立模型，对时间进行操作，但如何特征工程其实还是一头雾水。比赛中，尝试了tfidf、笛卡尔积特征。效果不错</p>
+<p>比赛中2次差点放弃，1内存8G实在是吃力，2成绩在自己努力下波动性提高，名次却平稳增长== 欲哭无泪。<br>训练集构造：</p>
+<ul>
+<li>滑窗 </li>
+<li>tfidf特征：主要是用作处理&lt; userID,AppID &gt;这样的一对多 并由此延伸出&lt; userID,cate1,cate2 &gt;这样的tfidf特征</li>
+<li>笛卡儿积特征：主要是两两一起的统计特征</li>
+</ul>
+<p>采用xgboost单模型（那时仍然不会调参、哭） </p>
+<p>好歹擦边进了复赛= =  然后苦于数据集太大和要期末考试，没有继续打了。</p>
+<p>总结： </p>
+<ol>
+<li>扯淡一个人比赛，又苦又累，新人更是如此，还好我有个朋友可以帮我指明下一步该如何提高。和大佬组队就可以打酱油啦~ 但收获可能会少些，毕竟他们目前的知识比我高太多，难以消化。</li>
+<li>需要提高编程能力： 内存并不是瓶颈，采用数据抽样，就可以解决内存计算问题而且提高了效率。</li>
+<li>这2次比赛都没有很好的特征工程，要从业务出发，多想。</li>
+<li>调参和stacking都很重要（这部分调参可以写个库）</li>
+<li>有真实数据使用真是太爽啦，比赛有了进步就是好事~</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/30/机器学习经历一/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-机器学习基本教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -167,7 +277,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>以一个有监督的二分类模型，模型对每个样本的预测为一个概率值，我们需选取一个阈值来区分好坏用户</p>
+        <p>以一个有监督的二分类模型，模型对每个样本的预测为一个概率值，我们需选取一个阈值(cutoff)来区分好坏用户</p>
 <p>假定我们已经定好了一个阈值，超过此阈值定义为（目标用户）1，低于此阈值定义为非目标用户（0），就可以计算出混淆矩阵(confusion matrix)<br><img src="https://i.loli.net/2017/09/25/59c912b51be23.png" alt=""></p>
 <p>由上图我们可以得出TP.TN.FP.FN四个值。</p>
 <ul>
@@ -511,6 +621,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
