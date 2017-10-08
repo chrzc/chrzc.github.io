@@ -179,128 +179,10 @@
 <li>参数主要为3部分<ul>
 <li>General Parameters</li>
 <li>Booster Parameters</li>
-<li>Learning Task Parameters</li>
-</ul>
-</li>
-</ul>
-<h3 id="General-Parameters"><a href="#General-Parameters" class="headerlink" title="General Parameters"></a><strong>General Parameters</strong></h3><ol>
-<li>booster [default=gbtree]<ul>
-<li>选择在每次迭代时的模型类型–gbtree、gblinear、dart</li>
-<li>gbtree和dart使用基于树的模型，gblinear使用线性模型</li>
-<li>由于通常gbtree表现比gblinear好，故使用默认gbtree。</li>
-</ul>
-</li>
-<li>silent[default=0]<ul>
-<li>0代表打印运行信息，1表示不打印。由于打印信息可以观察运行情况，推荐0.</li>
-</ul>
-</li>
-<li>nthread[默认为当前可获得的最大线程数]<ul>
-<li>若希望在所有内核上，不输入值，若想限速，输入核心数量，推荐不输入全速跑。</li>
-</ul>
-</li>
-<li>num_pbuffer and num_feature<ul>
-<li>这两个放一起说，都是由xgboost自动设置。</li>
-</ul>
-</li>
-</ol>
-<h3 id="Booster-Parameters"><a href="#Booster-Parameters" class="headerlink" title="Booster Parameters"></a><strong>Booster Parameters</strong></h3><p>在此仅说tree booster，因为它是最优的。</p>
-<ol>
-<li>eta[default=0.3]<ul>
-<li>可以理解为学习速率</li>
-<li>缩小步伐和每个步骤的权重，防止过拟合</li>
-<li>范围[0,1] 典型值为[0.01,0.2] </li>
-</ul>
-</li>
-<li>gamma[default=0, alias: min_split_loss]<ul>
-<li>越大，算法越保守</li>
-<li>范围[0,∞]</li>
-</ul>
-</li>
-<li>max_depth[default=6]<ul>
-<li>最大化一个数的深度，增加它会使模型变得更复杂更易过拟合</li>
-<li>0表示无限制，范围[0,∞]</li>
-</ul>
-</li>
-<li>min_child_weight[default=1]<ul>
-<li>范围[0,∞]</li>
-</ul>
-</li>
-<li>max_delta_step [default = 0]<ul>
-<li>允许每棵树的最大步长。值为0，代表没有约束</li>
-<li>通常不需要设置，但数据不平衡时，可能有助逻辑回归</li>
-</ul>
-</li>
-<li>subsample [default=1]<ul>
-<li>用于训练的子样本比例。设为0.5意味着xgboost随机收集一半的数据实例来生长树，这可以防止过拟合。</li>
-<li>范围(0,1]</li>
-</ul>
-</li>
-<li>colsample_bytree [default = 1]<ul>
-<li>表示每棵树时的随机抽样列采样率</li>
-<li>范围(0,1]</li>
-</ul>
-</li>
-<li>colsample_bylevel [default=1]<ul>
-<li>每个分级的列的子采样比率</li>
-<li>范围：(0,1]</li>
-</ul>
-</li>
-<li>lambda [default = 1]</li>
-<li>alpha [default = 0]<ul>
-<li>在非常高的维度使用，以便算法实现时运行得更快</li>
-</ul>
-</li>
-<li>scale_pos_weight [default = 1]<ul>
-<li>在数据不平衡的情况下使用 有助于更快收敛</li>
-</ul>
-</li>
-<li>tree_method，string [default =’auto’]   <ul>
-<li>xgboost中使用的树构造算法</li>
-<li>{‘auto’，’exact’，’approx’，’hist’，’gpu_exact’，’gpu_hist’}</li>
-<li><strong>待施工</strong></li>
-</ul>
-</li>
-<li>updater，[default =’grow_colmaker，prune’]</li>
-<li>predictor, [default=’cpu_predictor’]<pre><code>* **新版xgboost支持gpu运算**
-    * ‘cpu_predictor’，cpu运算
-    * ‘gpu_predictor’, 使用gpu运算，两方法结果相同，但gpu运算时间更短。
-</code></pre></li>
-</ol>
-<h3 id="Learning-Task-Parameters"><a href="#Learning-Task-Parameters" class="headerlink" title="Learning Task Parameters"></a><strong>Learning Task Parameters</strong></h3><ol>
-<li>objective[default = reg：linear]<ul>
-<li>定义了需要最小化的损耗函数（常用值如下）<ul>
-<li>“reg:linear”– 线性回归</li>
-<li>“reg:logistic”– 逻辑回归</li>
-<li>“binary:logistic”– 二元分类的逻辑回归，输入概率</li>
-<li>“multi：softmax”–多类分类，还需要设置num_class</li>
-<li>“multi：softprob”– 和softmax近似，但输出一个ndata * nclass的向量<br>2.eval_metric[默认为依据对象自动设置]</li>
-</ul>
-</li>
-<li>验证数据的评估指标</li>
-<li>可以添加多个评估指标(参数对的列表，而不是映射)</li>
-<li>选择如下：<ul>
-<li>rmse</li>
-<li>mae</li>
-<li>logloss</li>
-<li>error</li>
-<li>merror</li>
-<li>mlogloss</li>
-<li>auc</li>
-<li>ndcg</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>seed[default = 0]<ul>
-<li>随机数种子</li>
-<li>用于参数调整以及产生可以重现的结果</li>
-</ul>
-</li>
-</ol>
-<h1 id="调参"><a href="#调参" class="headerlink" title="调参"></a>调参</h1><ul>
-<li>思路：网格调参<br>这部分为代码 </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div></pre></td><td class="code"><pre><div class="line"># -*- coding: utf-8 -*-</div><div class="line">&quot;&quot;&quot;</div><div class="line">@author: stan</div><div class="line">&quot;&quot;&quot;</div><div class="line"></div><div class="line">import pandas as pd</div><div class="line">import numpy as np</div><div class="line">import xgboost as xgb</div><div class="line">from xgboost.sklearn import XGBClassifier</div><div class="line">from sklearn import cross_validation, metrics   #Additional scklearn functions</div><div class="line">from sklearn.grid_search import GridSearchCV   #Perforing grid search</div><div class="line"></div><div class="line">import matplotlib.pylab as plt</div><div class="line"></div><div class="line">from matplotlib.pylab import rcParams</div><div class="line"></div><div class="line">def modelfit(alg, dtrain, dvalid, predictors,useTrainCV=True, cv_folds=5, early_stopping_rounds=50):</div><div class="line">    </div><div class="line">    if useTrainCV:</div><div class="line">        xgb_param = alg.get_xgb_params()</div><div class="line">        xgtrain = xgb.DMatrix(dtrain[predictors].values, label=dtrain[target1].values)</div><div class="line">        cvresult = xgb.cv(xgb_param, xgtrain, num_boost_round=alg.get_params()[&apos;n_estimators&apos;], nfold=cv_folds,</div><div class="line">            metrics=&apos;auc&apos;, early_stopping_rounds=early_stopping_rounds, show_stdv=True)</div><div class="line">        alg.set_params(n_estimators=cvresult.shape[0])</div><div class="line">        print(&quot;n_estimators: &quot;,cvresult.shape[0])</div><div class="line">    </div><div class="line">    alg.fit(dtrain[predictors], dtrain[target1],eval_metric=&apos;auc&apos;)</div><div class="line">    dtrain_predictions = alg.predict(dtrain[predictors])</div><div class="line">    dtrain_predprob = alg.predict_proba(dtrain[predictors])[:,1]</div><div class="line">    print(&quot;AUC Score (Train): %f&quot; % metrics.roc_auc_score(dtrain[target1], dtrain_predprob))</div><div class="line">    dvalid_predictions = alg.predict(dvalid[predictors])</div><div class="line">    dvalid_predprob = alg.predict_proba(dvalid[predictors])[:,1]</div><div class="line">    print(&quot;AUC Score (Valid): %f&quot; % metrics.roc_auc_score(dvalid[target1], dvalid_predprob))</div><div class="line">	</div><div class="line"># set xgb parameters and change </div><div class="line">xgb1 = XGBClassifier(</div><div class="line">    learning_rate =0.3,</div><div class="line">    n_estimators=1000,</div><div class="line">    max_depth=5,</div><div class="line">    min_child_weight=1,</div><div class="line">    gamma=0,</div><div class="line">    subsample=0.8,</div><div class="line">    colsample_bytree=0.8,</div><div class="line">    objective= &apos;binary:logistic&apos;,</div><div class="line">    nthread=4,</div><div class="line">    scale_pos_weight=1,</div><div class="line">    seed=27)</div><div class="line"></div><div class="line">modelfit(xgb1, train, valid, predictors)</div><div class="line"></div><div class="line"># n_estimators has auto—changed</div><div class="line">param_test1 = &#123;</div><div class="line">    &apos;max_depth&apos;:list(range(3,10,2)),</div><div class="line">    &apos;min_child_weight&apos;:list(range(1,6,2))</div><div class="line">&#125;</div><div class="line">gsearch1 = GridSearchCV(estimator= xgb1</div><div class="line">                        ,param_grid = param_test1, scoring=&apos;roc_auc&apos;,n_jobs=4,iid=False, cv=5)</div><div class="line">gsearch1.fit(train[predictors],train[target1])</div><div class="line">#找出近似最优解</div><div class="line">best_max_depth = gsearch1.best_params_[&quot;max_depth&quot;]</div><div class="line">best_min_child_weight = gsearch1.best_params_[&quot;min_child_weight&quot;]</div><div class="line">print &quot;gsearch1 finished&quot;</div><div class="line">#比较左右同精度的得分</div><div class="line">#max_depth</div><div class="line">param_test2 = &#123;</div><div class="line"> &apos;max_depth&apos;:[best_max_depth-1,best_max_depth,best_max_depth+1]</div><div class="line">&#125;</div><div class="line">gsearch2 = GridSearchCV(estimator = xgb1, </div><div class="line">                        param_grid = param_test2, scoring=&apos;roc_auc&apos;,n_jobs=4,iid=False, cv=5)</div><div class="line">gsearch2.fit(train[predictors],train[target1])</div><div class="line">best_max_depth = gsearch2.best_params_[&quot;max_depth&quot;]</div><div class="line">xgb1.set_params(max_depth=best_max_depth)</div><div class="line">#min_child_weight</div><div class="line">param_test2b = &#123;</div><div class="line"> &apos;min_child_weight&apos;:[bset_min_child_weight-1,bset_min_child_weight,bset_min_child_weight+1]</div><div class="line">&#125;</div><div class="line">gsearch2b = GridSearchCV(estimator = xgb1, </div><div class="line">                         param_grid = param_test2b, scoring=&apos;roc_auc&apos;,n_jobs=4,iid=False, cv=5)</div><div class="line">gsearch2b.fit(train[predictors],train[target1])</div><div class="line">bset_min_child_weight = gsearch2b.best_params_[&quot;min_child_weight&quot;]</div><div class="line">xgb1.set_params(min_child_weight=bset_min_child_weight)</div><div class="line">print &quot;\n gsearch2 finished&quot;</div><div class="line">#设置 gamma</div><div class="line">param_test3 = &#123;</div><div class="line"> &apos;gamma&apos;:[i/100.0 for i in range(0,5)]</div><div class="line">&#125;</div><div class="line">gsearch3 = GridSearchCV(estimator = xgb1, </div><div class="line">						param_grid = param_test3, scoring=&apos;roc_auc&apos;,n_jobs=4,iid=False, cv=5)</div><div class="line">gsearch3.fit(train[predictors],train[target1])</div><div class="line">xgb1.set_params(gamma=gsearch3.best_params_[&quot;gamma&quot;])</div><div class="line">print &quot;\ngsearch3 finished&quot;</div><div class="line">#subsample and colsample_bytree 粗调</div><div class="line">param_test4 = &#123;</div><div class="line"> &apos;subsample&apos;:[i/10.0 for i in range(5,10)],</div><div class="line"> &apos;colsample_bytree&apos;:[i/10.0 for i in range(5,10)]</div><div class="line">&#125;</div><div class="line">gsearch4 = GridSearchCV(estimator = xgb1, </div><div class="line">						param_grid = param_test4, scoring=&apos;roc_auc&apos;,n_jobs=4,iid=False, cv=5)</div><div class="line">gsearch4.fit(train[predictors],train[target1])</div><div class="line">xgb1.set_params(colsample_bytree=gsearch4.best_params_[&quot;colsample_bytree&quot;])</div><div class="line">xgb1.set_params(subsample=gsearch4.best_params_[&quot;subsample&quot;])</div><div class="line">print &quot;\n gsearch4 finished&quot;</div><div class="line">#subsample and colsample_bytree 精调</div><div class="line">param_test5 = &#123;</div><div class="line"> &apos;subsample&apos;:[i/100.0 for i in range(int(best_subsample*100-10),int(best_subsample*100+10),5)],</div><div class="line"> &apos;colsample_bytree&apos;:[i/100.0 for i in range(int(best_colsample_bytree*100-10),int(best_colsample_bytree*100+10),5)]</div><div class="line">&#125;</div><div class="line">gsearch5 = GridSearchCV(estimator = xgb1, </div><div class="line">						param_grid = param_test5, scoring=&apos;roc_auc&apos;,n_jobs=2,iid=False, cv=5)</div><div class="line">gsearch5.fit(train[predictors],train[target1])</div><div class="line">xgb1.set_params(colsample_bytree=gsearch5.best_params_[&quot;colsample_bytree&quot;])</div><div class="line">xgb1.set_params(subsample=gsearch5.best_params_[&quot;subsample&quot;])</div><div class="line">print &quot;\n gsearch5 finished&quot;</div><div class="line"># Tuning Regularization Parameters</div><div class="line">param_test6 = &#123;</div><div class="line"> &apos;reg_alpha&apos;:[1e-5, 1e-2, 0.1, 1, 100]</div><div class="line">&#125;</div><div class="line">gsearch6 = GridSearchCV(estimator = xgb1, </div><div class="line">						param_grid = param_test6, scoring=&apos;roc_auc&apos;,n_jobs=2,iid=False, cv=5)</div><div class="line">gsearch6.fit(train[predictors],train[target1])</div><div class="line">xgb1.set_params(reg_alpha=gsearch6.best_params_[&quot;reg_alpha&quot;])</div><div class="line"></div><div class="line">#xgb1参数为网格最优了</div></pre></td></tr></table></figure>
+<li>Learning Task Parameters
+        
+          <a class="article-more-a" href="/2017/10/02/机器学习之xgboost参数/#more">more >></a>
+        
       
 
       
@@ -902,11 +784,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">machine_learning, xgboost</a>
+                <a href="javascript:void(0)" class="js-tag color2">machine_learning</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine_learning</a>
+                <a href="javascript:void(0)" class="js-tag color1">machine_learning, xgboost</a>
               </li>
             
             <div class="clearfix"></div>
