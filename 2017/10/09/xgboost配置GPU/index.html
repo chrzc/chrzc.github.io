@@ -16,7 +16,8 @@
 <meta property="og:site_name" content="stan的博客">
 <meta property="og:description" content="可以注意到，在最新版的XGBoost已经支持GPU运行了。以下我将介绍如何在python下配置xgb支持gpu。 ##必要环境  安装git  如果你安装了桌面版的github 自带了gitshell Windows10勾选开发者模式bash也可使用   安装cmake 选择的是3.9.4版本的cmake-3.9.4-win64-x64.msi 一直下一步 并勾选添加到path。   安装cuda">
 <meta property="og:image" content="https://i.loli.net/2017/10/09/59da7563d087a.png">
-<meta property="og:updated_time" content="2017-10-08T21:01:01.742Z">
+<meta property="og:image" content="https://i.loli.net/2017/10/09/59da936d8d981.png">
+<meta property="og:updated_time" content="2017-10-08T21:08:17.968Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python下XGBoost配置GPU">
 <meta name="twitter:description" content="可以注意到，在最新版的XGBoost已经支持GPU运行了。以下我将介绍如何在python下配置xgb支持gpu。 ##必要环境  安装git  如果你安装了桌面版的github 自带了gitshell Windows10勾选开发者模式bash也可使用   安装cmake 选择的是3.9.4版本的cmake-3.9.4-win64-x64.msi 一直下一步 并勾选添加到path。   安装cuda">
@@ -216,23 +217,16 @@
 </li>
 </ul>
 <h2 id="测试你的GPU"><a href="#测试你的GPU" class="headerlink" title="测试你的GPU"></a>测试你的GPU</h2><ul>
-<li>详情见<a href="https://xgboost.readthedocs.io/en/latest/gpu/index.html" target="_blank" rel="external">XGBoost GPU Support</a></li>
 <li>进入.\xgboost\tests\benchmark<ul>
 <li>运行benchmark.py<ul>
 <li>该步最好用spyder或者ide进行，方便修改参数。在40行 tree_method可设置为(gpu_hist,hist,gpu_exact,exact)</li>
-<li>官网给了个基准(Training time time on 1,000,000 rows x 50 columns with 500 boosting iterations and 0.25/0.75 test/train split on i7-6700K CPU @ 4.00GHz and Pascal Titan X)</li>
+<li>官网给了个基准(Training time time on 1,000,000 rows x 50 columns with 500 boosting iterations and 0.25/0.75 test/train split on i7-6700K CPU @ 4.00GHz and Pascal Titan X)<br><img src="https://i.loli.net/2017/10/09/59da936d8d981.png" alt=""></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<pre><code>| tree_method | Time (s) | 
-| ------------- |:-------------:| 
-| gpu_hist  | 13.87 | 
-| hist   | 63.55  | 
-| gpu_exact |  161.08  |
-| exact | 1082.20|
-</code></pre><h2 id="链接"><a href="#链接" class="headerlink" title="链接:"></a>链接:</h2><p>  <a href="http://xgboost.readthedocs.io/en/latest/build.html" target="_blank" rel="external">XGBoost安装指南</a><br>  <a href="https://github.com/dmlc/xgboost/" target="_blank" rel="external">XGBoost的github主页 </a></p>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接:"></a>链接:</h2><p>  <a href="http://xgboost.readthedocs.io/en/latest/build.html" target="_blank" rel="external">XGBoost安装指南</a><br>  <a href="https://github.com/dmlc/xgboost/" target="_blank" rel="external">XGBoost的github主页 </a><br>  <a href="https://xgboost.readthedocs.io/en/latest/gpu/index.html" target="_blank" rel="external">XGBoost GPU支持</a></p>
 
       
 
@@ -459,11 +453,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine_learning</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color2">machine_learning</a>
               </li>
              
               <li class="article-tag-list-item">
