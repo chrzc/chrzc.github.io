@@ -6,22 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>分类器评估方法对比 | stan的博客</title>
+  <title>Python下XGBoost配置GPU | stan的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="以一个有监督的二分类模型，模型对每个样本的预测为一个概率值，我们需选取一个阈值(cutoff)来区分好坏用户 假定我们已经定好了一个阈值，超过此阈值定义为（目标用户）1，低于此阈值定义为非目标用户（0），就可以计算出混淆矩阵(confusion matrix) 由上图我们可以得出TP.TN.FP.FN四个值。  precision:TP/(TP+FP) recall:TP/(TP+FN) F1:p">
+  <meta name="description" content="可以注意到，在最新版的XGBoost已经支持GPU运行了。以下我将介绍如何在python下配置xgb支持gpu。 ##必要环境  安装git  如果你安装了桌面版的github 自带了gitshell Windows10勾选开发者模式bash也可使用   安装cmake 选择的是3.9.4版本的cmake-3.9.4-win64-x64.msi 一直下一步 并勾选添加到path。   安装cuda">
 <meta name="keywords" content="machine_learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分类器评估方法对比">
-<meta property="og:url" content="http://yoursite.com/2017/09/25/机器学习基本教程/index.html">
+<meta property="og:title" content="Python下XGBoost配置GPU">
+<meta property="og:url" content="http://yoursite.com/2017/10/09/xgboost配置GPU/index.html">
 <meta property="og:site_name" content="stan的博客">
-<meta property="og:description" content="以一个有监督的二分类模型，模型对每个样本的预测为一个概率值，我们需选取一个阈值(cutoff)来区分好坏用户 假定我们已经定好了一个阈值，超过此阈值定义为（目标用户）1，低于此阈值定义为非目标用户（0），就可以计算出混淆矩阵(confusion matrix) 由上图我们可以得出TP.TN.FP.FN四个值。  precision:TP/(TP+FP) recall:TP/(TP+FN) F1:p">
-<meta property="og:image" content="https://i.loli.net/2017/09/25/59c912b51be23.png">
-<meta property="og:image" content="https://i.loli.net/2017/09/26/59c93b88db207.png">
-<meta property="og:updated_time" content="2017-09-30T15:45:25.138Z">
+<meta property="og:description" content="可以注意到，在最新版的XGBoost已经支持GPU运行了。以下我将介绍如何在python下配置xgb支持gpu。 ##必要环境  安装git  如果你安装了桌面版的github 自带了gitshell Windows10勾选开发者模式bash也可使用   安装cmake 选择的是3.9.4版本的cmake-3.9.4-win64-x64.msi 一直下一步 并勾选添加到path。   安装cuda">
+<meta property="og:image" content="https://i.loli.net/2017/10/09/59da7563d087a.png">
+<meta property="og:updated_time" content="2017-10-08T21:01:01.742Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类器评估方法对比">
-<meta name="twitter:description" content="以一个有监督的二分类模型，模型对每个样本的预测为一个概率值，我们需选取一个阈值(cutoff)来区分好坏用户 假定我们已经定好了一个阈值，超过此阈值定义为（目标用户）1，低于此阈值定义为非目标用户（0），就可以计算出混淆矩阵(confusion matrix) 由上图我们可以得出TP.TN.FP.FN四个值。  precision:TP/(TP+FP) recall:TP/(TP+FN) F1:p">
-<meta name="twitter:image" content="https://i.loli.net/2017/09/25/59c912b51be23.png">
+<meta name="twitter:title" content="Python下XGBoost配置GPU">
+<meta name="twitter:description" content="可以注意到，在最新版的XGBoost已经支持GPU运行了。以下我将介绍如何在python下配置xgb支持gpu。 ##必要环境  安装git  如果你安装了桌面版的github 自带了gitshell Windows10勾选开发者模式bash也可使用   安装cmake 选择的是3.9.4版本的cmake-3.9.4-win64-x64.msi 一直下一步 并勾选添加到path。   安装cuda">
+<meta name="twitter:image" content="https://i.loli.net/2017/10/09/59da7563d087a.png">
   
     <link rel="alternative" href="/atom.xml" title="stan的博客" type="application/atom+xml">
   
@@ -157,47 +156,83 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-机器学习基本教程" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-xgboost配置GPU" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      分类器评估方法对比
+      Python下XGBoost配置GPU
     </h1>
   
 
         
-        <a href="/2017/09/25/机器学习基本教程/" class="archive-article-date">
-  	<time datetime="2017-09-25T13:57:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-25</time>
+        <a href="/2017/10/09/xgboost配置GPU/" class="archive-article-date">
+  	<time datetime="2017-10-09T10:35:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>以一个有监督的二分类模型，模型对每个样本的预测为一个概率值，我们需选取一个阈值(cutoff)来区分好坏用户</p>
-<p>假定我们已经定好了一个阈值，超过此阈值定义为（目标用户）1，低于此阈值定义为非目标用户（0），就可以计算出混淆矩阵(confusion matrix)<br><img src="https://i.loli.net/2017/09/25/59c912b51be23.png" alt=""></p>
-<p>由上图我们可以得出TP.TN.FP.FN四个值。</p>
+        <p>可以注意到，在最新版的XGBoost已经支持GPU运行了。以下我将介绍如何在python下配置xgb支持gpu。</p>
+<p>##必要环境</p>
 <ul>
-<li>precision:TP/(TP+FP)</li>
-<li>recall:TP/(TP+FN)</li>
-<li>F1:precision和recall的调和均值F1=2PR/(P+R) 相当于综合指标</li>
-<li>Fα:F1的变体，Fα = (α^2+1)PR/(α^2P+R) 利用α给P、R赋不同权重</li>
+<li>安装git <ul>
+<li>如果你安装了桌面版的github 自带了gitshell</li>
+<li>Windows10勾选开发者模式bash也可使用</li>
 </ul>
-<p>ROC曲线（receiver operating characteristing curve):是由多个混淆矩阵的结果组合，若在上述模型中没有定义好阈值，而是将模型预测结果从高到低排序，将每个概率值依次作为阈值，那么就要多个混淆矩阵。<br><a id="more"></a></p>
-<p>对于每个混淆矩阵，计算2个指标:</p>
+</li>
+<li>安装<a href="https://cmake.org/download/" target="_blank" rel="external">cmake</a><ul>
+<li>选择的是3.9.4版本的cmake-3.9.4-win64-x64.msi</li>
+<li>一直下一步 并勾选<strong>添加到path</strong>。</li>
+</ul>
+</li>
+<li>安装cuda<ul>
+<li>选择的是10.0版本<br><img src="https://i.loli.net/2017/10/09/59da7563d087a.png" alt=""></li>
+<li>local与network的区别参见官网 在此选择的local<a id="more"></a>
+##开始配置</li>
+</ul>
+</li>
+<li>下载最新版xgboostgit <ul>
+<li>可以用<code>git clone --recursive https://github.com/dmlc/xgboost</code></li>
+<li>也可以在<a href="https://github.com/dmlc/xgboost/" target="_blank" rel="external">https://github.com/dmlc/xgboost/</a>下载master分支</li>
+</ul>
+</li>
+<li>git进入xgboost根目录  笔者采用的是vs 2015 顺序执行以下语句<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir build</div><div class="line">cd build</div><div class="line">cmake .. -G&quot;Visual Studio 14 2015 Win64&quot; -DUSE_CUDA=ON&quot;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>cmake这句 若使用其他编译器  使用<code>cmake -help</code></p>
 <ul>
-<li>TPR(True positive rate): TP/(TP+FN),即为recall </li>
-<li>FPR(False positive rate): <strong>FP/(FP+TN)</strong>,非目标中，预测为目标的占比</li>
-<li>即TPR越高越好，FPR越低越好</li>
-<li>我们以FPR为X轴，TPR为y轴画图，得到了ROC曲线<br><img src="https://i.loli.net/2017/09/26/59c93b88db207.png" alt=""></li>
+<li>现在build文件夹中存在xgboost.sln<ul>
+<li>可以使用vs2015打开它 使用release生成解决方案（中途会出现锟斤拷，不必理会）</li>
+<li>或者<code>cmake --build . --target xgboost --config Release</code></li>
 </ul>
-<p>在画ROC曲线的过程中，若有一个阈值，高于此阈值的均为目标，低于这个阈值的均非目标，则该模型完美。ROC曲线经过（0,1）</p>
-<p>AUC（Area Under Curve）的值为ROC曲线下面的面积，若上述模型十分准确，AUC为1。一般模型为0.5~1之间，AUC越高，模型区分能力越好。</p>
-<p>Gini系数: 指ROC曲线与中线围成的面积和中线之上的面积与中线之下的面积（0.5）的比例，换算公式为Gini = 2*AUC-1</p>
-<p>KS(Kolmogorov-Smirnov)：KS=max(TPR-FRR),可以反映模型的最优区分效果，此时所取的阈值一般为最优阈值   </p>
+</li>
+<li>完成后进入.\xgboost\python-package<ul>
+<li>执行python setup.py install</li>
+</ul>
+</li>
+</ul>
+<h2 id="测试你的GPU"><a href="#测试你的GPU" class="headerlink" title="测试你的GPU"></a>测试你的GPU</h2><ul>
+<li>详情见<a href="https://xgboost.readthedocs.io/en/latest/gpu/index.html" target="_blank" rel="external">XGBoost GPU Support</a></li>
+<li>进入.\xgboost\tests\benchmark<ul>
+<li>运行benchmark.py<ul>
+<li>该步最好用spyder或者ide进行，方便修改参数。在40行 tree_method可设置为(gpu_hist,hist,gpu_exact,exact)</li>
+<li>官网给了个基准(Training time time on 1,000,000 rows x 50 columns with 500 boosting iterations and 0.25/0.75 test/train split on i7-6700K CPU @ 4.00GHz and Pascal Titan X)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>| tree_method | Time (s) | 
+| ------------- |:-------------:| 
+| gpu_hist  | 13.87 | 
+| hist   | 63.55  | 
+| gpu_exact |  161.08  |
+| exact | 1082.20|
+</code></pre><h2 id="链接"><a href="#链接" class="headerlink" title="链接:"></a>链接:</h2><p>  <a href="http://xgboost.readthedocs.io/en/latest/build.html" target="_blank" rel="external">XGBoost安装指南</a><br>  <a href="https://github.com/dmlc/xgboost/" target="_blank" rel="external">XGBoost的github主页 </a></p>
 
       
 
@@ -267,7 +302,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/25/机器学习基本教程/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/09/xgboost配置GPU/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -281,18 +316,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/09/30/机器学习经历一/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JDATA 腾讯广告赛
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/09/25/配置ssh和写文章/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">配置SSH和hexo发布文章</div>
+    <a href="/2017/10/02/机器学习之xgboost参数/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">xgboost参数</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -323,8 +349,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2017/09/25/机器学习基本教程/", 
-    sourceId: "机器学习基本教程",
+    url: "http://yoursite.com/2017/10/09/xgboost配置GPU/", 
+    sourceId: "xgboost配置GPU",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };

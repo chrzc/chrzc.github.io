@@ -152,6 +152,97 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-xgboost配置GPU" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/09/xgboost配置GPU/">Python下XGBoost配置GPU</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/09/xgboost配置GPU/" class="archive-article-date">
+  	<time datetime="2017-10-09T10:35:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>可以注意到，在最新版的XGBoost已经支持GPU运行了。以下我将介绍如何在python下配置xgb支持gpu。</p>
+<p>##必要环境</p>
+<ul>
+<li>安装git <ul>
+<li>如果你安装了桌面版的github 自带了gitshell</li>
+<li>Windows10勾选开发者模式bash也可使用</li>
+</ul>
+</li>
+<li>安装<a href="https://cmake.org/download/" target="_blank" rel="external">cmake</a><ul>
+<li>选择的是3.9.4版本的cmake-3.9.4-win64-x64.msi</li>
+<li>一直下一步 并勾选<strong>添加到path</strong>。</li>
+</ul>
+</li>
+<li>安装cuda<ul>
+<li>选择的是10.0版本<br><img src="https://i.loli.net/2017/10/09/59da7563d087a.png" alt=""></li>
+<li>local与network的区别参见官网 在此选择的local
+        
+          <a class="article-more-a" href="/2017/10/09/xgboost配置GPU/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine_learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/09/xgboost配置GPU/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-机器学习之xgboost参数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -174,7 +265,9 @@
       
         <h1 id="XGBoost中参数调优"><a href="#XGBoost中参数调优" class="headerlink" title="XGBoost中参数调优"></a><strong>XGBoost中参数调优</strong></h1><p>本文参考<a href="http://xgboost.readthedocs.io/en/latest/parameter.html" target="_blank" rel="external">xgboost官方文档</a>以及<a href="https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/" target="_blank" rel="external">python中xgboost参数设置</a>而作。</p>
 <p>使用语言：python</p>
-<p>目的: 是为了自己在写一个调参库前能有一个细节理解。鉴于本人拙劣的思维，如有错误可以在评论区提出。</p>
+<ul>
+<li>采用python的XGBoost模块有一个sklearn包，XGBClassifier<br>目的: 是为了自己在写一个调参库前能有一个细节理解。鉴于本人拙劣的思维，如有错误可以在评论区提出。</li>
+</ul>
 <h2 id="参数组成"><a href="#参数组成" class="headerlink" title="参数组成"></a><strong>参数组成</strong></h2><ul>
 <li>参数主要为3部分<ul>
 <li>General Parameters</li>
@@ -776,15 +869,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine_learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
