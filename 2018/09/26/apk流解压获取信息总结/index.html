@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/09/26/apk流解压获取信息总结/index.html">
 <meta property="og:site_name" content="stan的博客">
 <meta property="og:description" content="根据apk链接获取apk包名应用名 最近有个需求，根据apk链接获取apk的包名和应用名。 正常手段是这样，下载完整的apk，然后利用apktool解压分析，完事。这样的操作，一方面需要大量时间下载，一方面也浪费磁盘空间（需要解压）。 进一步的思路是，不利用apktool解压。因为apk文件是zip压缩格式，于是我们可以根据zip格式来分析apk二进制文件（不需要解压了）。 现在基本上apk都支持">
-<meta property="og:updated_time" content="2018-09-26T02:46:13.862Z">
+<meta property="og:updated_time" content="2018-09-26T02:51:44.079Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="apk链接提取应用名称及包名">
 <meta name="twitter:description" content="根据apk链接获取apk包名应用名 最近有个需求，根据apk链接获取apk的包名和应用名。 正常手段是这样，下载完整的apk，然后利用apktool解压分析，完事。这样的操作，一方面需要大量时间下载，一方面也浪费磁盘空间（需要解压）。 进一步的思路是，不利用apktool解压。因为apk文件是zip压缩格式，于是我们可以根据zip格式来分析apk二进制文件（不需要解压了）。 现在基本上apk都支持">
@@ -200,7 +200,8 @@ archive extra data record (EFS)
 zip64的中央目录记录结束
 zip64的中央目录定位结束
 中央目录记录结束
-</code></pre><p>本地文件头的格式如下:</p>
+</code></pre><a id="more"></a>
+<p>本地文件头的格式如下:</p>
 <pre><code>本地文件头签名 &amp;ensp;    4个字节（0x04034b50）
 需要提取的版本 &amp;ensp;   2个字节
 通用位标志    &amp;ensp;     2个字节
@@ -343,8 +344,8 @@ File header:
 <nav id="article-nav">
   
   
-    <a href="/2017/10/17/随笔1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">2017/10/17随笔</div>
+    <a href="/2017/10/09/xgboost配置GPU/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python下XGBoost配置GPU</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -485,11 +486,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine_learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">machine_learning, xgboost</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -497,15 +494,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">machine_learning</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">转载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">machine_learning, xgboost</a>
               </li>
             
             <div class="clearfix"></div>

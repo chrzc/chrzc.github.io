@@ -198,66 +198,10 @@ archive extra data record (EFS)
 zip64的中央目录记录结束
 zip64的中央目录定位结束
 中央目录记录结束
-</code></pre><p>本地文件头的格式如下:</p>
-<pre><code>本地文件头签名 &amp;ensp;    4个字节（0x04034b50）
-需要提取的版本 &amp;ensp;   2个字节
-通用位标志    &amp;ensp;     2个字节
-压缩方法     &amp;ensp;     2个字节
-最后的mod文件时间 &amp;ensp; 2个字节
-最后的mod文件日期 &amp;ensp; 2个字节
-crc-32          &amp;ensp;  4个字节
-压缩大小   &amp;ensp;       4个字节
-解压缩大小  &amp;ensp;      4个字节
-文件名长度     &amp;ensp;   2个字节
-额外字段长度    &amp;ensp;  2个字节
-</code></pre><ul>
-<li>由上述信息，我们知道了，对二进制数据，找到文件头标签即可判断这是个文件开头。注意这是小端存放，因此用 (b’\x50\x4b\x03\x04’)来判定寻找文件头。并且文件的压缩大小也给出了，结合上面的字段既可找到下一个文件的开头，不断循环即可。这样利用requests库的流下载，既可做到迭代寻找下一个新文件对其操作。设置个chunk即可。</li>
-</ul>
-<ul>
-<li><p>上面的方法只是解决了不需要解压的问题，如果我们想要的文件在apk存放在靠后位置，依然会浪费比较多的时间，有没有一个更好的方案呢？</p>
-</li>
-<li><p>肯定有，找到如下资料</p>
-<p>Central directory structure:</p>
-<pre><code>[file header 1]
-.
-.
-. 
-[file header n]
-[digital signature] 
-
-File header:
-
-  central file header signature   4 bytes  (0x02014b50)
-  version made by                 2 bytes
-  version needed to extract       2 bytes
-  general purpose bit flag        2 bytes
-  compression method              2 bytes
-  last mod file time              2 bytes
-  last mod file date              2 bytes
-  crc-32                          4 bytes
-  compressed size                 4 bytes
-  uncompressed size               4 bytes
-  file name length                2 bytes
-  extra field length              2 bytes
-  file comment length             2 bytes
-  disk number start               2 bytes
-  internal file attributes        2 bytes
-  external file attributes        4 bytes
-  relative offset of local header 4 bytes
-
-  file name (variable size)
-  extra field (variable size)
-  file comment (variable size)
-</code></pre></li>
-</ul>
-<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a><strong>总结：</strong></h2><ul>
-<li>可以看出这样就有了文件的起始字段和文件压缩大小，既可以从http请求头部直接定义字段，取到自己需要的文件即可。</li>
-<li>通常情况下AndroidManifest.xml和resources.arsc是我们需要的文件</li>
-<li>apktool解压出来有个string文件，里面有apk的应用名称，通过看apk源码我们可知，是由resource.arsc提取。这两个文件中都含有package name，所以目标找到resource.arsc文件处于的字节段即可。</li>
-<li>方法就有了，我们先发一个请求url链接后1M的数据，拿到中央目录，找到resource.arsc文件对于的url中的位置。这里需要注意一下，找到的起始位置是文件头开始，会有额外字段，因此compressed size需要加个1kb。</li>
-<li>代码整理后另外上传吧 (做成分2部分 1流式下载apk 2根据url提取名称）</li>
-</ul>
-
+</code></pre>
+        
+          <a class="article-more-a" href="/2018/09/26/apk流解压获取信息总结/#more">more >></a>
+        
       
 
       
@@ -281,83 +225,6 @@ File header:
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/09/26/apk流解压获取信息总结/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-随笔1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/17/随笔1/">2017/10/17随笔</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/17/随笔1/" class="archive-article-date">
-  	<time datetime="2017-10-17T06:50:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>最近在做ccf和蚂蚁金服合作的基于wifi的用户商场定位所在店铺。
-        
-          <a class="article-more-a" href="/2017/10/17/随笔1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/17/随笔1/">展开全文 >></a>
         </p>
       
 
@@ -479,6 +346,83 @@ File header:
 
 
   
+    <article id="post-应该考研还是工作回答" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/02/应该考研还是工作回答/">应该考研还是毕业工作</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/02/应该考研还是工作回答/" class="archive-article-date">
+  	<time datetime="2017-10-01T20:14:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>作者：但愿<br>链接：<a href="https://www.zhihu.com/question/54146603/answer/241427273" target="_blank" rel="external">https://www.zhihu.com/question/54146603/answer/241427273</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>①昨天我去小区的小卖部买东西，老板和我谈到他的女儿因为高考成绩不是很好，最后读了一个民办高校的事。现在女儿刚刚读大学2个月，向父亲表态，一定要“考研”，离开这个学校，去往更好的学校求学。父亲于是问我，大一怎么准备考研？到底是工作好还是考研好？我沉吟一下，你女儿是不是只是热衷于“表态”，而并不想认真准备考研呢？我这么思考是有原因的。如果真是想考某个大学的硕士研究生，一个当下最好的办法，就是离开正在读的民办高校，回到高中复读一年，争取考到这个大学的本科生，再在这个大学读4年书，大四时候选择考本校的研究生。而不是在一个民办高校里，用四年时间和外在环境做斗争，不断加深自律学习，毕竟环境给人带来的制约作用实在是太大了。<br>
+        
+          <a class="article-more-a" href="/2017/10/02/应该考研还是工作回答/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">转载</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/02/应该考研还是工作回答/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-机器学习之xgboost参数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -535,83 +479,6 @@ File header:
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/10/02/机器学习之xgboost参数/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-应该考研还是工作回答" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/02/应该考研还是工作回答/">应该考研还是毕业工作</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/02/应该考研还是工作回答/" class="archive-article-date">
-  	<time datetime="2017-10-01T20:14:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>作者：但愿<br>链接：<a href="https://www.zhihu.com/question/54146603/answer/241427273" target="_blank" rel="external">https://www.zhihu.com/question/54146603/answer/241427273</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-<p>①昨天我去小区的小卖部买东西，老板和我谈到他的女儿因为高考成绩不是很好，最后读了一个民办高校的事。现在女儿刚刚读大学2个月，向父亲表态，一定要“考研”，离开这个学校，去往更好的学校求学。父亲于是问我，大一怎么准备考研？到底是工作好还是考研好？我沉吟一下，你女儿是不是只是热衷于“表态”，而并不想认真准备考研呢？我这么思考是有原因的。如果真是想考某个大学的硕士研究生，一个当下最好的办法，就是离开正在读的民办高校，回到高中复读一年，争取考到这个大学的本科生，再在这个大学读4年书，大四时候选择考本校的研究生。而不是在一个民办高校里，用四年时间和外在环境做斗争，不断加深自律学习，毕竟环境给人带来的制约作用实在是太大了。<br>
-        
-          <a class="article-more-a" href="/2017/10/02/应该考研还是工作回答/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">转载</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/02/应该考研还是工作回答/">展开全文 >></a>
         </p>
       
 
@@ -1186,11 +1053,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine_learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">machine_learning, xgboost</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1198,15 +1061,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">machine_learning</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">转载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">machine_learning, xgboost</a>
               </li>
             
             <div class="clearfix"></div>
