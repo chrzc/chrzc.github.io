@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="machine_learning," />
 
 
 
@@ -79,18 +79,21 @@
 
 
 
-<meta name="description" content="##配置SSH在git中执行下面命令生成SSH  ssh-keygen   敲3次回车 生成id_rsa.pub,记事本打开复制SSH key的内容 打开github，点击setting-SSH keys— Add SSH 把复制的内容粘贴到下面框中，title随便填写  判断SSH是否配置好   ssh -T git@github.com  若出现Hi XX! You&amp;#39;ve succes">
-<meta name="keywords" content="hexo">
+<meta name="description" content="以一个有监督的二分类模型，模型对每个样本的预测为一个概率值，我们需选取一个阈值(cutoff)来区分好坏用户 假定我们已经定好了一个阈值，超过此阈值定义为（目标用户）1，低于此阈值定义为非目标用户（0），就可以计算出混淆矩阵(confusion matrix) 由上图我们可以得出TP.TN.FP.FN四个值。  precision:TP/(TP+FP) recall:TP/(TP+FN) F1:p">
+<meta name="keywords" content="machine_learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="配置SSH和hexo发布文章">
-<meta property="og:url" content="http://regression.cn/2017/09/25/配置ssh和写文章/index.html">
+<meta property="og:title" content="分类器评估方法对比">
+<meta property="og:url" content="http://regression.cn/机器学习基本教程.html">
 <meta property="og:site_name" content="stan的博客">
-<meta property="og:description" content="##配置SSH在git中执行下面命令生成SSH  ssh-keygen   敲3次回车 生成id_rsa.pub,记事本打开复制SSH key的内容 打开github，点击setting-SSH keys— Add SSH 把复制的内容粘贴到下面框中，title随便填写  判断SSH是否配置好   ssh -T git@github.com  若出现Hi XX! You&amp;#39;ve succes">
+<meta property="og:description" content="以一个有监督的二分类模型，模型对每个样本的预测为一个概率值，我们需选取一个阈值(cutoff)来区分好坏用户 假定我们已经定好了一个阈值，超过此阈值定义为（目标用户）1，低于此阈值定义为非目标用户（0），就可以计算出混淆矩阵(confusion matrix) 由上图我们可以得出TP.TN.FP.FN四个值。  precision:TP/(TP+FP) recall:TP/(TP+FN) F1:p">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-30T15:44:24.000Z">
+<meta property="og:image" content="https://i.loli.net/2017/09/25/59c912b51be23.png">
+<meta property="og:image" content="https://i.loli.net/2017/09/26/59c93b88db207.png">
+<meta property="og:updated_time" content="2017-09-30T15:45:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="配置SSH和hexo发布文章">
-<meta name="twitter:description" content="##配置SSH在git中执行下面命令生成SSH  ssh-keygen   敲3次回车 生成id_rsa.pub,记事本打开复制SSH key的内容 打开github，点击setting-SSH keys— Add SSH 把复制的内容粘贴到下面框中，title随便填写  判断SSH是否配置好   ssh -T git@github.com  若出现Hi XX! You&amp;#39;ve succes">
+<meta name="twitter:title" content="分类器评估方法对比">
+<meta name="twitter:description" content="以一个有监督的二分类模型，模型对每个样本的预测为一个概率值，我们需选取一个阈值(cutoff)来区分好坏用户 假定我们已经定好了一个阈值，超过此阈值定义为（目标用户）1，低于此阈值定义为非目标用户（0），就可以计算出混淆矩阵(confusion matrix) 由上图我们可以得出TP.TN.FP.FN四个值。  precision:TP/(TP+FP) recall:TP/(TP+FN) F1:p">
+<meta name="twitter:image" content="https://i.loli.net/2017/09/25/59c912b51be23.png">
 
 
 
@@ -98,7 +101,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -120,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://regression.cn/2017/09/25/配置ssh和写文章/"/>
+  <link rel="canonical" href="http://regression.cn/机器学习基本教程.html"/>
 
 
 
 
 
-  <title>配置SSH和hexo发布文章 | stan的博客</title>
+  <title>分类器评估方法对比 | stan的博客</title>
   
 
 
@@ -273,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://regression.cn/2017/09/25/配置ssh和写文章/">
+    <link itemprop="mainEntityOfPage" href="http://regression.cn/机器学习基本教程.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="stan">
@@ -290,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">配置SSH和hexo发布文章</h1>
+          <h1 class="post-title" itemprop="name headline">分类器评估方法对比</h1>
         
 
         <div class="post-meta">
@@ -302,7 +305,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-25T14:50:18+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-25T21:57:15+08:00">
                 2017-09-25
               </time>
             
@@ -320,7 +323,7 @@
 
           
           
-             <span id="/2017/09/25/配置ssh和写文章/" class="leancloud_visitors" data-flag-title="配置SSH和hexo发布文章">
+             <span id="/机器学习基本教程.html" class="leancloud_visitors" data-flag-title="分类器评估方法对比">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -351,30 +354,27 @@
       
 
       
-        <p>##配置SSH<br>在git中执行下面命令生成SSH</p>
-<blockquote>
-<p>ssh-keygen</p>
-</blockquote>
+        <p>以一个有监督的二分类模型，模型对每个样本的预测为一个概率值，我们需选取一个阈值(cutoff)来区分好坏用户</p>
+<p>假定我们已经定好了一个阈值，超过此阈值定义为（目标用户）1，低于此阈值定义为非目标用户（0），就可以计算出混淆矩阵(confusion matrix)<br><img src="https://i.loli.net/2017/09/25/59c912b51be23.png" alt=""></p>
+<p>由上图我们可以得出TP.TN.FP.FN四个值。</p>
 <ul>
-<li>敲3次回车 生成<code>id_rsa.pub</code>,记事本打开复制SSH key的内容</li>
-<li>打开github，点击setting-SSH keys— Add SSH</li>
-<li>把复制的内容粘贴到下面框中，title随便填写</li>
+<li>precision:TP/(TP+FP)</li>
+<li>recall:TP/(TP+FN)</li>
+<li>F1:precision和recall的调和均值F1=2PR/(P+R) 相当于综合指标</li>
+<li>Fα:F1的变体，Fα = (α^2+1)PR/(α^2P+R) 利用α给P、R赋不同权重</li>
 </ul>
-<p>判断SSH是否配置好 </p>
-<blockquote>
-<p>ssh -T git@github.com</p>
-</blockquote>
-<p>若出现<br><code>Hi XX! You&#39;ve successfully authenticated,but Github does not provide shell access.</code><br>代表配置完成 </p>
-<a id="more"></a>
-<h2 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h2><blockquote>
-<p>hexo new “title”</p>
-</blockquote>
-<p>在本地hexo-&gt;source-&gt;_post目录下可以看到你新建的文章</p>
-<p>之后可以利用markdown编辑器编辑文章 <a href="http://www.appinn.com/markdown/" title="markdown语法说明（简体中文版）" target="_blank" rel="external">http://www.appinn.com/markdown/</a></p>
-<p>在文章中插入图片和修改图片，推荐使用图库，域名[sm.ms]</p>
-<p>写好了 在git中依次执行<code>hexo clean
-hexo generate
-hexo deploy</code>就可以发布了</p>
+<p>ROC曲线（receiver operating characteristing curve):是由多个混淆矩阵的结果组合，若在上述模型中没有定义好阈值，而是将模型预测结果从高到低排序，将每个概率值依次作为阈值，那么就要多个混淆矩阵。<br><a id="more"></a></p>
+<p>对于每个混淆矩阵，计算2个指标:</p>
+<ul>
+<li>TPR(True positive rate): TP/(TP+FN),即为recall </li>
+<li>FPR(False positive rate): <strong>FP/(FP+TN)</strong>,非目标中，预测为目标的占比</li>
+<li>即TPR越高越好，FPR越低越好</li>
+<li>我们以FPR为X轴，TPR为y轴画图，得到了ROC曲线<br><img src="https://i.loli.net/2017/09/26/59c93b88db207.png" alt=""></li>
+</ul>
+<p>在画ROC曲线的过程中，若有一个阈值，高于此阈值的均为目标，低于这个阈值的均非目标，则该模型完美。ROC曲线经过（0,1）</p>
+<p>AUC（Area Under Curve）的值为ROC曲线下面的面积，若上述模型十分准确，AUC为1。一般模型为0.5~1之间，AUC越高，模型区分能力越好。</p>
+<p>Gini系数: 指ROC曲线与中线围成的面积和中线之上的面积与中线之下的面积（0.5）的比例，换算公式为Gini = 2*AUC-1</p>
+<p>KS(Kolmogorov-Smirnov)：KS=max(TPR-FRR),可以反映模型的最优区分效果，此时所取的阈值一般为最优阈值   </p>
 
       
     </div>
@@ -392,7 +392,7 @@ hexo deploy</code>就可以发布了</p>
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/machine-learning/" rel="tag"># machine_learning</a>
           
         </div>
       
@@ -405,8 +405,8 @@ hexo deploy</code>就可以发布了</p>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/12/stan-first-blog/" rel="next" title="如何利用hexo和github建立自己的网站">
-                <i class="fa fa-chevron-left"></i> 如何利用hexo和github建立自己的网站
+              <a href="/配置ssh和写文章.html" rel="next" title="配置SSH和hexo发布文章">
+                <i class="fa fa-chevron-left"></i> 配置SSH和hexo发布文章
               </a>
             
           </div>
@@ -415,8 +415,8 @@ hexo deploy</code>就可以发布了</p>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/09/25/机器学习基本教程/" rel="prev" title="分类器评估方法对比">
-                分类器评估方法对比 <i class="fa fa-chevron-right"></i>
+              <a href="/机器学习经历一.html" rel="prev" title="JDATA 腾讯广告赛">
+                JDATA 腾讯广告赛 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -469,17 +469,8 @@ hexo deploy</code>就可以发布了</p>
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -531,22 +522,6 @@ hexo deploy</code>就可以发布了</p>
       </section>
 
       
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#发布文章"><span class="nav-number">1.</span> <span class="nav-text">发布文章</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
 
       
 
@@ -578,7 +553,7 @@ hexo deploy</code>就可以发布了</p>
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
@@ -677,13 +652,6 @@ hexo deploy</code>就可以发布了</p>
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>

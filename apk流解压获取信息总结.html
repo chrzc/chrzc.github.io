@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="apk,python," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="经过各种坑，我自己的第一篇个人网站博客终于到了正题了。话不多说，先介绍如何利用hexo搭建自己的个人网站。 配置环境 node.js github git  你需要一个GitHub账户，网站地址是：www.github.com 建议配置ssh keys 这样每次上传都不必手动输入密码了（有时间我下篇写如何配置ssh） 安装桌面版GitHub会自带git（需要到指定位置运行) win10 bash也">
-<meta name="keywords" content="hexo">
+<meta name="description" content="根据apk链接获取apk包名应用名 最近有个需求，根据apk链接获取apk的包名和应用名。 正常手段是这样，下载完整的apk，然后利用apktool解压分析，完事。这样的操作，一方面需要大量时间下载，一方面也浪费磁盘空间（需要解压）。 进一步的思路是，不利用apktool解压。因为apk文件是zip压缩格式，于是我们可以根据zip格式来分析apk二进制文件（不需要解压了）。 现在基本上apk都支持">
+<meta name="keywords" content="apk,python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何利用hexo和github建立自己的网站">
-<meta property="og:url" content="http://regression.cn/2017/09/12/stan-first-blog/index.html">
+<meta property="og:title" content="apk链接提取应用名称及包名">
+<meta property="og:url" content="http://regression.cn/apk流解压获取信息总结.html">
 <meta property="og:site_name" content="stan的博客">
-<meta property="og:description" content="经过各种坑，我自己的第一篇个人网站博客终于到了正题了。话不多说，先介绍如何利用hexo搭建自己的个人网站。 配置环境 node.js github git  你需要一个GitHub账户，网站地址是：www.github.com 建议配置ssh keys 这样每次上传都不必手动输入密码了（有时间我下篇写如何配置ssh） 安装桌面版GitHub会自带git（需要到指定位置运行) win10 bash也">
+<meta property="og:description" content="根据apk链接获取apk包名应用名 最近有个需求，根据apk链接获取apk的包名和应用名。 正常手段是这样，下载完整的apk，然后利用apktool解压分析，完事。这样的操作，一方面需要大量时间下载，一方面也浪费磁盘空间（需要解压）。 进一步的思路是，不利用apktool解压。因为apk文件是zip压缩格式，于是我们可以根据zip格式来分析apk二进制文件（不需要解压了）。 现在基本上apk都支持">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-30T15:43:39.000Z">
+<meta property="og:updated_time" content="2018-09-26T02:51:44.079Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何利用hexo和github建立自己的网站">
-<meta name="twitter:description" content="经过各种坑，我自己的第一篇个人网站博客终于到了正题了。话不多说，先介绍如何利用hexo搭建自己的个人网站。 配置环境 node.js github git  你需要一个GitHub账户，网站地址是：www.github.com 建议配置ssh keys 这样每次上传都不必手动输入密码了（有时间我下篇写如何配置ssh） 安装桌面版GitHub会自带git（需要到指定位置运行) win10 bash也">
+<meta name="twitter:title" content="apk链接提取应用名称及包名">
+<meta name="twitter:description" content="根据apk链接获取apk包名应用名 最近有个需求，根据apk链接获取apk的包名和应用名。 正常手段是这样，下载完整的apk，然后利用apktool解压分析，完事。这样的操作，一方面需要大量时间下载，一方面也浪费磁盘空间（需要解压）。 进一步的思路是，不利用apktool解压。因为apk文件是zip压缩格式，于是我们可以根据zip格式来分析apk二进制文件（不需要解压了）。 现在基本上apk都支持">
 
 
 
@@ -98,7 +98,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://regression.cn/2017/09/12/stan-first-blog/"/>
+  <link rel="canonical" href="http://regression.cn/apk流解压获取信息总结.html"/>
 
 
 
 
 
-  <title>如何利用hexo和github建立自己的网站 | stan的博客</title>
+  <title>apk链接提取应用名称及包名 | stan的博客</title>
   
 
 
@@ -273,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://regression.cn/2017/09/12/stan-first-blog/">
+    <link itemprop="mainEntityOfPage" href="http://regression.cn/apk流解压获取信息总结.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="stan">
@@ -290,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">如何利用hexo和github建立自己的网站</h1>
+          <h1 class="post-title" itemprop="name headline">apk链接提取应用名称及包名</h1>
         
 
         <div class="post-meta">
@@ -302,8 +302,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-12T18:54:55+08:00">
-                2017-09-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-26T10:40:18+08:00">
+                2018-09-26
               </time>
             
 
@@ -320,7 +320,7 @@
 
           
           
-             <span id="/2017/09/12/stan-first-blog/" class="leancloud_visitors" data-flag-title="如何利用hexo和github建立自己的网站">
+             <span id="/apk流解压获取信息总结.html" class="leancloud_visitors" data-flag-title="apk链接提取应用名称及包名">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -351,49 +351,91 @@
       
 
       
-        <h2 id="经过各种坑，我自己的第一篇个人网站博客终于到了正题了。话不多说，先介绍如何利用hexo搭建自己的个人网站。"><a href="#经过各种坑，我自己的第一篇个人网站博客终于到了正题了。话不多说，先介绍如何利用hexo搭建自己的个人网站。" class="headerlink" title="经过各种坑，我自己的第一篇个人网站博客终于到了正题了。话不多说，先介绍如何利用hexo搭建自己的个人网站。"></a>经过各种坑，我自己的第一篇个人网站博客终于到了正题了。话不多说，先介绍如何利用hexo搭建自己的个人网站。</h2><ul>
-<li>配置环境</li>
-<li><code>node.js</code> <code>github</code> <code>git</code> </li>
-<li>你需要一个GitHub账户，网站地址是：www.github.com 建议配置ssh keys 这样每次上传都不必手动输入密码了（有时间我下篇写如何配置ssh）</li>
-<li>安装桌面版GitHub会自带git（需要到指定位置运行) win10 bash也带有git  git也可单独下载</li>
-<li>安装hexo 官网<a href="http://hexo.io/" title="hexo" target="_blank" rel="external">http://hexo.io/</a> 在node和git都安装好了 进入git hexo官网最下面 5条语句 依次输入</li>
-<li><p>下一步执行</p>
-<blockquote>
-<p>hexo server<br>若报错，则执行命令$ sudo npm install hexo-server</p>
-</blockquote>
+        <h1 id="根据apk链接获取apk包名应用名"><a href="#根据apk链接获取apk包名应用名" class="headerlink" title="根据apk链接获取apk包名应用名"></a>根据apk链接获取apk包名应用名</h1><ul>
+<li>最近有个需求，根据apk链接获取apk的包名和应用名。</li>
+<li>正常手段是这样，下载完整的apk，然后利用apktool解压分析，完事。这样的操作，一方面需要大量时间下载，一方面也浪费磁盘空间（需要解压）。</li>
+<li>进一步的思路是，不利用apktool解压。因为apk文件是zip压缩格式，于是我们可以根据zip格式来分析apk二进制文件（不需要解压了）。</li>
+<li><p>现在基本上apk都支持流下载，那么我们也可以做个流解压提取我们的信息。</p>
 </li>
-<li><p>重试，出现INFO Hexo is running at <a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a>. Press Ctrl+C to stop.则表明成功在本地运行</p>
-</li>
-<li>注：若安装福昕pdf，则可能无法运行，因为端口4000被其占用，改成hexo s -p 5000即可访问<a id="more"></a>
+<li><p>查阅apk和zip压缩格式，主要得到以下几个信息。</p>
 </li>
 </ul>
-<h1 id="与github关联"><a href="#与github关联" class="headerlink" title="与github关联"></a>与github关联</h1><ul>
-<li>建立repository</li>
-<li>建立与你用户名对应的仓库，仓库名为<strong>[user_name.github.io]</strong> 例，我的用户名是chrzc 则我建立的仓库名是[chrzc.github.io]</li>
-<li>进入你的本地blog文件存放位置，修改_config.yml文件，把最下面的改成<br><code>deploy:
-type: git
-repository: https://github.com/leopardpan/leopardpan.github.io.git
-branch: master</code></li>
-<li>执行 npm install hexo-deployer-git –save</li>
-<li>hexo deploy</li>
-<li>在浏览器中输入[user_name.github.io]就行了</li>
+<p>zip压缩格式:</p>
+<pre><code>本地文件头1
+文件数据1
+数据描述符1
+
+以上重复若干次
+
+本地文件头 n
+文件数据 n
+数据描述符n
+
+archive decryption header(EFS) 
+archive extra data record (EFS)
+中央目录
+zip64的中央目录记录结束
+zip64的中央目录定位结束
+中央目录记录结束
+</code></pre><a id="more"></a>
+<p>本地文件头的格式如下:</p>
+<pre><code>本地文件头签名 &amp;ensp;    4个字节（0x04034b50）
+需要提取的版本 &amp;ensp;   2个字节
+通用位标志    &amp;ensp;     2个字节
+压缩方法     &amp;ensp;     2个字节
+最后的mod文件时间 &amp;ensp; 2个字节
+最后的mod文件日期 &amp;ensp; 2个字节
+crc-32          &amp;ensp;  4个字节
+压缩大小   &amp;ensp;       4个字节
+解压缩大小  &amp;ensp;      4个字节
+文件名长度     &amp;ensp;   2个字节
+额外字段长度    &amp;ensp;  2个字节
+</code></pre><ul>
+<li>由上述信息，我们知道了，对二进制数据，找到文件头标签即可判断这是个文件开头。注意这是小端存放，因此用 (b’\x50\x4b\x03\x04’)来判定寻找文件头。并且文件的压缩大小也给出了，结合上面的字段既可找到下一个文件的开头，不断循环即可。这样利用requests库的流下载，既可做到迭代寻找下一个新文件对其操作。设置个chunk即可。</li>
 </ul>
-<h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><ol>
-<li>hexo clean</li>
-<li>hexo generate</li>
-<li>hexo deploy</li>
-</ol>
-<hr>
 <ul>
-<li>常用语法</li>
-<li>hexo new “postName” #新建文章</li>
-<li>hexo new page “pageName” #新建页面</li>
-<li>hexo generate #生成静态页面至public目录</li>
-<li>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）</li>
-<li>hexo deploy #将.deploy目录部署到GitHub</li>
-<li>hexo help  #查看帮助</li>
-<li>hexo version  #查看Hexo的版本</li>
-<li><em>推荐使用markdown软件编辑文章，我用的是markdownpad 2</em></li>
+<li><p>上面的方法只是解决了不需要解压的问题，如果我们想要的文件在apk存放在靠后位置，依然会浪费比较多的时间，有没有一个更好的方案呢？</p>
+</li>
+<li><p>肯定有，找到如下资料</p>
+<p>Central directory structure:</p>
+<pre><code>[file header 1]
+.
+.
+. 
+[file header n]
+[digital signature] 
+
+File header:
+
+  central file header signature   4 bytes  (0x02014b50)
+  version made by                 2 bytes
+  version needed to extract       2 bytes
+  general purpose bit flag        2 bytes
+  compression method              2 bytes
+  last mod file time              2 bytes
+  last mod file date              2 bytes
+  crc-32                          4 bytes
+  compressed size                 4 bytes
+  uncompressed size               4 bytes
+  file name length                2 bytes
+  extra field length              2 bytes
+  file comment length             2 bytes
+  disk number start               2 bytes
+  internal file attributes        2 bytes
+  external file attributes        4 bytes
+  relative offset of local header 4 bytes
+
+  file name (variable size)
+  extra field (variable size)
+  file comment (variable size)
+</code></pre></li>
+</ul>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a><strong>总结：</strong></h2><ul>
+<li>可以看出这样就有了文件的起始字段和文件压缩大小，既可以从http请求头部直接定义字段，取到自己需要的文件即可。</li>
+<li>通常情况下AndroidManifest.xml和resources.arsc是我们需要的文件</li>
+<li>apktool解压出来有个string文件，里面有apk的应用名称，通过看apk源码我们可知，是由resource.arsc提取。这两个文件中都含有package name，所以目标找到resource.arsc文件处于的字节段即可。</li>
+<li>方法就有了，我们先发一个请求url链接后1M的数据，拿到中央目录，找到resource.arsc文件对于的url中的位置。这里需要注意一下，找到的起始位置是文件头开始，会有额外字段，因此compressed size需要加个1kb。</li>
+<li>代码整理后另外上传吧 (做成分2部分 1流式下载apk 2根据url提取名称）</li>
 </ul>
 
       
@@ -412,7 +454,7 @@ branch: master</code></li>
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/apk-python/" rel="tag"># apk,python</a>
           
         </div>
       
@@ -425,15 +467,15 @@ branch: master</code></li>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/xgboost配置GPU.html" rel="next" title="Python下XGBoost配置GPU">
+                <i class="fa fa-chevron-left"></i> Python下XGBoost配置GPU
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/25/配置ssh和写文章/" rel="prev" title="配置SSH和hexo发布文章">
-                配置SSH和hexo发布文章 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -556,7 +598,7 @@ branch: master</code></li>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#经过各种坑，我自己的第一篇个人网站博客终于到了正题了。话不多说，先介绍如何利用hexo搭建自己的个人网站。"><span class="nav-number">1.</span> <span class="nav-text">经过各种坑，我自己的第一篇个人网站博客终于到了正题了。话不多说，先介绍如何利用hexo搭建自己的个人网站。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#与github关联"><span class="nav-number"></span> <span class="nav-text">与github关联</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署"><span class="nav-number"></span> <span class="nav-text">部署</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#根据apk链接获取apk包名应用名"><span class="nav-number">1.</span> <span class="nav-text">根据apk链接获取apk包名应用名</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#总结："><span class="nav-number">1.1.</span> <span class="nav-text">总结：</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -594,7 +636,7 @@ branch: master</code></li>
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
@@ -693,13 +735,6 @@ branch: master</code></li>
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
