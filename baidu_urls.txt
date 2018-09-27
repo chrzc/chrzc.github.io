@@ -1,7 +1,7 @@
 http://regression.cn/apk流解压获取信息总结.html
 http://regression.cn/xgboost配置GPU.html
-http://regression.cn/机器学习之xgboost参数.html
 http://regression.cn/应该考研还是工作回答.html
+http://regression.cn/机器学习之xgboost参数.html
 http://regression.cn/qlcoder.html
 http://regression.cn/机器学习经历一.html
 http://regression.cn/机器学习基本教程.html
