@@ -1,0 +1,9 @@
+http://regression.cn/2018/09/26/apk流解压获取信息总结/
+http://regression.cn/2017/10/09/xgboost配置GPU/
+http://regression.cn/2017/10/02/应该考研还是工作回答/
+http://regression.cn/2017/10/02/机器学习之xgboost参数/
+http://regression.cn/2017/10/01/qlcoder/
+http://regression.cn/2017/09/30/机器学习经历一/
+http://regression.cn/2017/09/25/机器学习基本教程/
+http://regression.cn/2017/09/25/配置ssh和写文章/
+http://regression.cn/2017/09/12/stan-first-blog/
