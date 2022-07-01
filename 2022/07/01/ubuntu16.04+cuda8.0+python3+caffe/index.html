@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="安装ubuntu16.04镜像安装cuda8.0** 先安装驱动()** 安装runfile** 取消勾选安装驱动 123export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda-8.0&#x2F;bin:$PATH  export LD_LIBRARY_PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda-8.0&#x2F;lib64:$LD_LIBRARY_PATHsource ~&#x2F;.bashrc  安装cudnn5.1123">
+<meta property="og:type" content="article">
+<meta property="og:title" content="stan的博客">
+<meta property="og:url" content="http://regression.cn/2022/07/01/ubuntu16.04+cuda8.0+python3+caffe/index.html">
+<meta property="og:site_name" content="stan的博客">
+<meta property="og:description" content="安装ubuntu16.04镜像安装cuda8.0** 先安装驱动()** 安装runfile** 取消勾选安装驱动 123export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda-8.0&#x2F;bin:$PATH  export LD_LIBRARY_PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;cuda-8.0&#x2F;lib64:$LD_LIBRARY_PATHsource ~&#x2F;.bashrc  安装cudnn5.1123">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-07-01T06:43:45.597Z">
+<meta property="article:modified_time" content="2022-03-11T08:20:22.393Z">
+<meta property="article:author" content="stan">
+<meta property="article:tag" content="人工智能,玩蛇,python">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://regression.cn/2022/07/01/ubuntu16.04+cuda8.0+python3+caffe/"/>
+
+
+
+
+
+  <title> | stan的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">stan的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">大火成灰，闷绝不燃</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://regression.cn/2022/07/01/ubuntu16.04+cuda8.0+python3+caffe/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="stan的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-07-01T14:43:45+08:00">
+                2022-07-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="安装ubuntu16-04镜像"><a href="#安装ubuntu16-04镜像" class="headerlink" title="安装ubuntu16.04镜像"></a>安装ubuntu16.04镜像</h1><h1 id="安装cuda8-0"><a href="#安装cuda8-0" class="headerlink" title="安装cuda8.0"></a>安装cuda8.0</h1><p>** 先安装驱动()<br>** 安装runfile<br>** 取消勾选安装驱动</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/cuda-8.0/bin:$PATH  </span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装cudnn5-1"><a href="#安装cudnn5-1" class="headerlink" title="安装cudnn5.1"></a>安装cudnn5.1</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo cp cuda/include/cudnn.h /usr/local/cuda/include/  </span><br><span class="line">sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64/  </span><br><span class="line">sudo chmod a+r /usr/local/cuda/include/cudnn.h  </span><br><span class="line">sudo chmod a+r /usr/local/cuda/lib64/libcudnn*</span><br></pre></td></tr></table></figure>
+<h1 id="安装BLAS"><a href="#安装BLAS" class="headerlink" title="安装BLAS"></a>安装BLAS</h1><p> sudo apt-get install libatlas-base-dev</p>
+<h1 id="安装opencv2-4-10"><a href="#安装opencv2-4-10" class="headerlink" title="安装opencv2.4.10"></a>安装opencv2.4.10</h1><p>安装前：<br>修改graphcuts.cpp文件（搜索即可，不修改会编译报错）<br><code>#if !defined (HAVE_CUDA) || defined (CUDA_DISABLER)</code></p>
+<p>改成</p>
+<p><code>#if !defined (HAVE_CUDA) || defined (CUDA_DISABLER) || (CUDART_VERSION &gt;= 8000)</code><br>编译:<br>cmake -D CMAKE_BUILD_TYPE&#x3D;release -D CMAKE_INSTALL_PREFIX&#x3D;&#x2F;usr&#x2F;local -D CUDA_GENERATION&#x3D;Kepler .. (2个点)</p>
+<p>终端输入：<br>pkg-config –modversion opencv出现对应版本号即安装成功。</p>
+<h1 id="安装Caffe-python3依赖包"><a href="#安装Caffe-python3依赖包" class="headerlink" title="安装Caffe python3依赖包"></a>安装Caffe python3依赖包</h1><p>sudo apt-get install python3-pip(安装pip3)(pip3会提示版本过低 不要升级)<br>进入caffe的python目录,执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for req in $(cat requirements.txt); do pip3 install $req; done</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>sudo vim  ~&#x2F;.bashrc</p>
+<p>在文件末尾添加（添加caffe的python路径）：</p>
+<p>export PYTHONPATH&#x3D;&#x2F;path&#x2F;to&#x2F;caffe&#x2F;python:$PYTHONPATH（需要修改为自己的路径，如）</p>
+<p>export PYTHONPATH&#x3D;&#x2F;home&#x2F;stan&#x2F;work&#x2F;caffe&#x2F;python:$PYTHONPATH<br>运行source ~&#x2F;.bashrc</p>
+<h1 id="链接python3-5"><a href="#链接python3-5" class="headerlink" title="链接python3.5"></a>链接python3.5</h1><p>进入&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F; 下，查看有没有libboost_python-py35.so，如果有链接一下就可以了</p>
+<p>sudo ln -s libboost_python-py35.so libboost_python3.so</p>
+<h1 id="编译需要依赖"><a href="#编译需要依赖" class="headerlink" title="编译需要依赖"></a>编译需要依赖</h1><p>sudo apt-get install libatlas-base-dev libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libboost-all-dev libhdf5-serial-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler<br>打开 caffe 所在目录，找到Makefile.config.example文件，将其改名为Makefile.config,使用如下的配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br></pre></td><td class="code"><pre><span class="line">## Refer to http://caffe.berkeleyvision.org/installation.html</span><br><span class="line"># Contributions simplifying and improving our build system are welcome!</span><br><span class="line"></span><br><span class="line"># cuDNN acceleration switch (uncomment to build with cuDNN).</span><br><span class="line">USE_CUDNN := 1</span><br><span class="line"></span><br><span class="line"># CPU-only switch (uncomment to build without GPU support).</span><br><span class="line">#CPU_ONLY := 1</span><br><span class="line"></span><br><span class="line"># uncomment to disable IO dependencies and corresponding data layers</span><br><span class="line">#USE_OPENCV := 0</span><br><span class="line"># USE_LEVELDB := 0</span><br><span class="line"># USE_LMDB := 0</span><br><span class="line"># This code is taken from https://github.com/sh1r0/caffe-android-lib</span><br><span class="line"># USE_HDF5 := 0</span><br><span class="line"></span><br><span class="line"># uncomment to allow MDB_NOLOCK when reading LMDB files (only if necessary)</span><br><span class="line">#	You should not set this flag if you will be reading LMDBs with any</span><br><span class="line">#	possibility of simultaneous read and write</span><br><span class="line"># ALLOW_LMDB_NOLOCK := 1</span><br><span class="line"></span><br><span class="line"># Uncomment if you&#x27;re using OpenCV 3</span><br><span class="line">#OPENCV_VERSION := 3</span><br><span class="line"></span><br><span class="line"># To customize your choice of compiler, uncomment and set the following.</span><br><span class="line"># N.B. the default for Linux is g++ and the default for OSX is clang++</span><br><span class="line">CUSTOM_CXX := g++</span><br><span class="line">#CUSTOM_CXX := clang++ -std=c++11</span><br><span class="line"></span><br><span class="line"># CUDA directory contains bin/ and lib/ directories that we need.</span><br><span class="line"># CUDA_DIR := /usr/local/cuda</span><br><span class="line"># On Ubuntu 14.04, if cuda tools are installed via</span><br><span class="line"># &quot;sudo apt-get install nvidia-cuda-toolkit&quot; then use this instead:</span><br><span class="line">CUDA_DIR := /usr/local/cuda</span><br><span class="line"></span><br><span class="line"># CUDA architecture setting: going with all of them.</span><br><span class="line"># For CUDA &lt; 6.0, comment the *_50 through *_61 lines for compatibility.</span><br><span class="line"># For CUDA &lt; 8.0, comment the *_60 and *_61 lines for compatibility.</span><br><span class="line"># For CUDA &gt;= 9.0, comment the *_20 and *_21 lines for compatibility.</span><br><span class="line">CUDA_ARCH := -gencode arch=compute_20,code=sm_20 \</span><br><span class="line">		-gencode arch=compute_20,code=sm_21 \</span><br><span class="line">		-gencode arch=compute_30,code=sm_30 \</span><br><span class="line">		-gencode arch=compute_35,code=sm_35 \</span><br><span class="line">		-gencode arch=compute_50,code=sm_50 \</span><br><span class="line">		-gencode arch=compute_52,code=sm_52 \</span><br><span class="line">		-gencode arch=compute_60,code=sm_60 \</span><br><span class="line">		-gencode arch=compute_61,code=sm_61 \</span><br><span class="line">		-gencode arch=compute_61,code=compute_61</span><br><span class="line"></span><br><span class="line"># BLAS choice:</span><br><span class="line"># atlas for ATLAS (default)</span><br><span class="line"># mkl for MKL</span><br><span class="line"># open for OpenBlas</span><br><span class="line">BLAS := atlas</span><br><span class="line"># Custom (MKL/ATLAS/OpenBLAS) include and lib directories.</span><br><span class="line"># Leave commented to accept the defaults for your choice of BLAS</span><br><span class="line"># (which should work)!</span><br><span class="line"># BLAS_INCLUDE := /path/to/your/blas</span><br><span class="line"># BLAS_LIB := /path/to/your/blas</span><br><span class="line"></span><br><span class="line"># Homebrew puts openblas in a directory that is not on the standard search path</span><br><span class="line"># BLAS_INCLUDE := $(shell brew --prefix openblas)/include</span><br><span class="line"># BLAS_LIB := $(shell brew --prefix openblas)/lib</span><br><span class="line"></span><br><span class="line"># This is required only if you will compile the matlab interface.</span><br><span class="line"># MATLAB directory should contain the mex binary in /bin.</span><br><span class="line"># MATLAB_DIR := /usr/local</span><br><span class="line"># MATLAB_DIR := /Applications/MATLAB_R2012b.app</span><br><span class="line"></span><br><span class="line"># NOTE: this is required only if you will compile the python interface.</span><br><span class="line"># We need to be able to find Python.h and numpy/arrayobject.h.</span><br><span class="line"># PYTHON_INCLUDE := /usr/include/python2.7 \</span><br><span class="line">		/usr/lib/python2.7/dist-packages/numpy/core/include</span><br><span class="line"># Anaconda Python distribution is quite popular. Include path:</span><br><span class="line"># Verify anaconda location, sometimes it&#x27;s in root.</span><br><span class="line"># ANACONDA_HOME := $(HOME)/anaconda</span><br><span class="line"># PYTHON_INCLUDE := $(ANACONDA_HOME)/include \</span><br><span class="line">		# $(ANACONDA_HOME)/include/python2.7 \</span><br><span class="line">		# $(ANACONDA_HOME)/lib/python2.7/site-packages/numpy/core/include</span><br><span class="line"></span><br><span class="line"># Uncomment to use Python 3 (default is Python 2)</span><br><span class="line">PYTHON_LIBRARIES := boost_python3 python3.5m</span><br><span class="line">PYTHON_INCLUDE := /usr/include/python3.5m \</span><br><span class="line">                 /home/stan/.local/lib/python3.5/site-packages/numpy/core/include</span><br><span class="line"></span><br><span class="line"># We need to be able to find libpythonX.X.so or .dylib.</span><br><span class="line">PYTHON_LIB := /usr/lib</span><br><span class="line"># PYTHON_LIB := $(ANACONDA_HOME)/lib</span><br><span class="line"></span><br><span class="line"># Homebrew installs numpy in a non standard path (keg only)</span><br><span class="line"># PYTHON_INCLUDE += $(dir $(shell python -c &#x27;import numpy.core; print(numpy.core.__file__)&#x27;))/include</span><br><span class="line"># PYTHON_LIB += $(shell brew --prefix numpy)/lib</span><br><span class="line"></span><br><span class="line"># Uncomment to support layers written in Python (will link against Python libs)</span><br><span class="line">WITH_PYTHON_LAYER := 1</span><br><span class="line"></span><br><span class="line"># Whatever else you find you need goes here.</span><br><span class="line">INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/lib /usr/local/include /usr/include/hdf5/serial /home/stan/work/opencv-2.4.10/release/bin</span><br><span class="line"></span><br><span class="line">LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/hdf5/serial /home/stan/work/opencv-2.4.10/release/bin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># If Homebrew is installed at a non standard location (for example your home directory) and you use it for general dependencies</span><br><span class="line">#INCLUDE_DIRS += ~/local_install/include</span><br><span class="line">#LIBRARY_DIRS += ~/local_install/bin</span><br><span class="line"></span><br><span class="line"># NCCL acceleration switch (uncomment to build with NCCL)</span><br><span class="line"># https://github.com/NVIDIA/nccl (last tested version: v1.2.3-1+cuda8.0)</span><br><span class="line"># USE_NCCL := 1</span><br><span class="line"></span><br><span class="line"># Uncomment to use `pkg-config` to specify OpenCV library paths.</span><br><span class="line"># (Usually not necessary -- OpenCV libraries are normally installed in one of the above $LIBRARY_DIRS.)</span><br><span class="line">#USE_PKG_CONFIG := 1</span><br><span class="line">#LIBRARIES += glog gflags protobuf leveldb snappy \</span><br><span class="line">       lmdb boost_system m  hdf5_serial_hl hdf5_serial </span><br><span class="line">#       opencv_core opencv_highgui opencv_imgproc opencv_imgcodecs opencv_imagecodecs</span><br><span class="line"># N.B. both build and distribute dirs are cleared on `make clean`</span><br><span class="line">BUILD_DIR := build</span><br><span class="line">DISTRIBUTE_DIR := distribute</span><br><span class="line"></span><br><span class="line"># Uncomment for debugging. Does not work on OSX due to https://github.com/BVLC/caffe/issues/171</span><br><span class="line"># DEBUG := 1</span><br><span class="line"></span><br><span class="line"># The ID of the GPU that &#x27;make runtest&#x27; will use to run unit tests.</span><br><span class="line">TEST_GPUID := 0</span><br><span class="line"></span><br><span class="line"># enable pretty build (comment to see full commands)</span><br><span class="line">Q ?= @</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>make -j8 (根据cpu核心 -j16 或者-j4)</p>
+<p>make test</p>
+<p>make runtest</p>
+<p>make pycaffe</p>
+<h1 id="Caffe测试"><a href="#Caffe测试" class="headerlink" title="Caffe测试"></a>Caffe测试</h1><h2 id="下载地址-http-dl-caffe-berkeleyvision-org"><a href="#下载地址-http-dl-caffe-berkeleyvision-org" class="headerlink" title="下载地址 http://dl.caffe.berkeleyvision.org/"></a>下载地址 <a target="_blank" rel="noopener" href="http://dl.caffe.berkeleyvision.org/">http://dl.caffe.berkeleyvision.org/</a></h2><p>下载bvlc_reference_caffenet.caffemodel到models&#x2F;bvlc_reference_caffenet&#x2F; 文件夹下面<br>下载caffe_ilsvrc12.tar.gz解压到data&#x2F;ilsvrc12&#x2F; 文件夹</p>
+<p>python&#x2F;classify.py修改</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Classify.</span><br><span class="line">    start = time.time()</span><br><span class="line">    predictions = classifier.predict(inputs, not args.center_only)</span><br><span class="line">    print(&quot;Done in %.2f s.&quot; % (time.time() - start))</span><br><span class="line">    imagenet_labels_filename = &#x27;../data/ilsvrc12/synset_words.txt&#x27;</span><br><span class="line">    labels = np.loadtxt(imagenet_labels_filename, str, delimiter=&#x27;\t&#x27;)</span><br><span class="line">    top_k = predictions.flatten().argsort()[-1:-6:-1]</span><br><span class="line">    for i in np.arange(top_k.size):</span><br><span class="line">        print(top_k[i], labels[top_k[i]])</span><br></pre></td></tr></table></figure>
+<p>执行</p>
+<p> sudo python3 classify.py  ..&#x2F;examples&#x2F;images&#x2F;cat.jpg result.npy</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/26/apk%E6%B5%81%E8%A7%A3%E5%8E%8B%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF%E6%80%BB%E7%BB%93/" rel="next" title="apk链接提取应用名称及包名">
+                <i class="fa fa-chevron-left"></i> apk链接提取应用名称及包名
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85ubuntu16-04%E9%95%9C%E5%83%8F"><span class="nav-number">1.</span> <span class="nav-text">安装ubuntu16.04镜像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85cuda8-0"><span class="nav-number">2.</span> <span class="nav-text">安装cuda8.0</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85cudnn5-1"><span class="nav-number">2.1.</span> <span class="nav-text">安装cudnn5.1</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85BLAS"><span class="nav-number">3.</span> <span class="nav-text">安装BLAS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85opencv2-4-10"><span class="nav-number">4.</span> <span class="nav-text">安装opencv2.4.10</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Caffe-python3%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="nav-number">5.</span> <span class="nav-text">安装Caffe python3依赖包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5python3-5"><span class="nav-number">6.</span> <span class="nav-text">链接python3.5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E9%9C%80%E8%A6%81%E4%BE%9D%E8%B5%96"><span class="nav-number">7.</span> <span class="nav-text">编译需要依赖</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Caffe%E6%B5%8B%E8%AF%95"><span class="nav-number">8.</span> <span class="nav-text">Caffe测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-http-dl-caffe-berkeleyvision-org"><span class="nav-number">8.1.</span> <span class="nav-text">下载地址 http:&#x2F;&#x2F;dl.caffe.berkeleyvision.org&#x2F;</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">stan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

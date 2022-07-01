@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="markdown," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="练习Markdown语法~  #Markdown: 让书写更美好 ##Markdown简介 Markdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（John Gruber）。它允许人们“使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML(或者HTML)文档”。[1]这种语言吸收了很多在电子邮件中已有的纯文本标记的特性。 ——维基百科 优点：  简单，容易上手  纯文本实现，程序员">
+<meta property="og:type" content="article">
+<meta property="og:title" content="千里码Markdown题目">
+<meta property="og:url" content="http://regression.cn/2017/10/01/qlcoder/index.html">
+<meta property="og:site_name" content="stan的博客">
+<meta property="og:description" content="练习Markdown语法~  #Markdown: 让书写更美好 ##Markdown简介 Markdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（John Gruber）。它允许人们“使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML(或者HTML)文档”。[1]这种语言吸收了很多在电子邮件中已有的纯文本标记的特性。 ——维基百科 优点：  简单，容易上手  纯文本实现，程序员">
+<meta property="og:locale">
+<meta property="og:image" content="http://121.201.63.168/uploads/144397483516233.png">
+<meta property="og:image" content="http://121.201.63.168/uploads/144397493224203.png">
+<meta property="og:image" content="http://121.201.63.168/uploads/144397497461561.png">
+<meta property="og:image" content="http://121.201.63.168/uploads/144397547560778.png">
+<meta property="article:published_time" content="2017-10-01T13:25:55.000Z">
+<meta property="article:modified_time" content="2017-10-01T13:31:26.000Z">
+<meta property="article:author" content="stan">
+<meta property="article:tag" content="markdown">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://121.201.63.168/uploads/144397483516233.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://regression.cn/2017/10/01/qlcoder/"/>
+
+
+
+
+
+  <title>千里码Markdown题目 | stan的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">stan的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">大火成灰，闷绝不燃</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://regression.cn/2017/10/01/qlcoder/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="stan的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">千里码Markdown题目</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-01T21:25:55+08:00">
+                2017-10-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>练习Markdown语法~</li>
+</ul>
+<p>#<strong>Markdown: 让书写更美好</strong></p>
+<p>##<strong>Markdown简介</strong></p>
+<p>Markdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（John Gruber）。它允许人们“使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML(或者HTML)文档”。[1]这种语言吸收了很多在电子邮件中已有的纯文本标记的特性。 ——维基百科</p>
+<p>优点：</p>
+<ul>
+<li>简单，容易上手 </li>
+<li>纯文本实现，程序员最爱，容易扩展，方便和其他工具联动</li>
+<li>平台支持广：以Github为首的各种平台、各种博客都支持，基本上现在面向程序员的输入框都可以用Markdown来写了</li>
+<li>丰富的工具链<ul>
+<li>编辑器：各种支持所见即所得的编辑器</li>
+<li>和各种其他格式互相转化的工具，PDF、Mobi、Epub、HTML等等，几乎你能想到的所有格式它都能转</li>
+</ul>
+</li>
+</ul>
+<p>##<strong>Markdown语法</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://ibruce.info/2013/11/26/markdown/">最好入门的简明语法</a></li>
+<li><a target="_blank" rel="noopener" href="http://wowubuntu.com/markdown/basic.html">简明版 Markdown 语法说明(简体中文版)</a></li>
+<li><a target="_blank" rel="noopener" href="http://wowubuntu.com/markdown/index.html">完整版 Markdown 语法说明(简体中文版)</a></li>
+<li><a target="_blank" rel="noopener" href="https://help.github.com/articles/github-flavored-markdown/">GitHub Flavored Markdown</a></li>
+</ul>
+<span id="more"></span>
+
+<p>##<strong>Markdown编辑器</strong></p>
+<ul>
+<li><p>Windows 平台</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://markdownpad.com/">MarkdownPad</a></li>
+<li><a target="_blank" rel="noopener" href="http://code52.org/DownmarkerWPF/">MarkPad</a></li>
+</ul>
+</li>
+<li><p>Linux 平台</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://sourceforge.net/p/retext/home/ReText/">ReText</a></li>
+</ul>
+</li>
+<li><p>Mac平台</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://mouapp.com/">Mou</a>, 应该是Mac下目前最好的markdown编辑器，推荐使用。</li>
+</ul>
+</li>
+<li><p>在线编辑器</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://markable.in/">Markable.in</a> </li>
+<li><a target="_blank" rel="noopener" href="http://dillinger.io/">Dillinger.io</a></li>
+</ul>
+</li>
+<li><p>浏览器插件</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/oknndfeeopgpibecfjljjfanledpbkog">MaDe</a> </li>
+<li><a target="_blank" rel="noopener" href="http://maxiang.info/">马克飞象</a>，用来写印象笔记的客户端，支持TOC、LaTex 公式、流程图、时序图等扩展语法，支持直接从剪贴板粘贴图片。缺点是只支持用来写印象笔记，并且只能试用10天，收费79每年。如果平时有用印象笔记记录的习惯，推荐使用。</li>
+</ul>
+</li>
+<li><p>高级应用</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.sublimetext.com/2">Sublime Text 2</a> + <a target="_blank" rel="noopener" href="http://ttscoff.github.io/MarkdownEditing/">MarkdownEditing</a> &#x2F; <a target="_blank" rel="noopener" href="http://lucifr.com/2012/07/12/markdownediting-for-sublime-text-2/">教程</a></li>
+</ul>
+<p>  <img src="http://121.201.63.168/uploads/144397483516233.png"></p>
+<p>  <img src="http://121.201.63.168/uploads/144397493224203.png"></p>
+</li>
+</ul>
+<h2 id="格式转化"><a href="#格式转化" class="headerlink" title="格式转化"></a><strong>格式转化</strong></h2><ul>
+<li><p><a target="_blank" rel="noopener" href="http://johnmacfarlane.net/pandoc/">pondoc</a>，号称格式转化的瑞士军刀，可以转化成几乎任何格式</p>
+</li>
+<li><p>制作自己的博客</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://jekyllcn.com/">jekyll</a>，Github原生支持的一个静态博客，ruby写的，可以直接用Github pages托管，相当于拥有了一个挂在github上的免费个人博客；</li>
+<li><a target="_blank" rel="noopener" href="http://octopress.org/">Octopress</a>，基于jekyll，做了一些改进；</li>
+<li><a target="_blank" rel="noopener" href="http://hexo.io/index.html">Hexo</a>，一个台湾人写的markdown静态博客框架，使用NodeJS实现，速度快，轻量级，主题也比较小清新。</li>
+</ul>
+</li>
+<li><p>制作文档</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.mkdocs.org/">mkdocs</a></li>
+<li><a target="_blank" rel="noopener" href="https://readthedocs.org/">readthedocs</a>，使用最广的文档服务，如<a target="_blank" rel="noopener" href="https://scrapy-chs.readthedocs.org/zh_CN/0.24/index.html">Scrapy 文档</a>，支持Restructed和Markdown语言，其Markdown支持通过mkdocs来实现；</li>
+</ul>
+<p>  <img src="http://121.201.63.168/uploads/144397497461561.png"></p>
+</li>
+<li><p>制作电子书</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.gitbook.com/">gitbook</a>，利用Markdown写电子书的工具，并提供免费托管。开源电子书<a target="_blank" rel="noopener" href="http://yeasy.gitbooks.io/docker_practice/">Docker —— 从入门到实践</a>即是托管在上面的。我的笔记网站也是通过该工具生成的。</li>
+</ul>
+<p>  <img src="http://121.201.63.168/uploads/144397547560778.png"></p>
+</li>
+<li><p>制作slides</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/hakimel/reveal.js">reveal.js</a>,<a target="_blank" rel="noopener" href="http://lab.hakim.se/reveal-js/#/">Demo</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/adamzap/landslide">landslide</a>,<a target="_blank" rel="noopener" href="http://adamzap.com/misc/presentation.html#slide1">Demo</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="最重要的事情放在最后——markdown可以让你的代码更好看"><a href="#最重要的事情放在最后——markdown可以让你的代码更好看" class="headerlink" title="最重要的事情放在最后——markdown可以让你的代码更好看"></a><strong>最重要的事情放在最后——markdown可以让你的代码更好看</strong></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class Main</span><br><span class="line">&#123;</span><br><span class="line">    public static void main(String[] args)</span><br><span class="line">    &#123;</span><br><span class="line">        int cnt=0,num=1;</span><br><span class="line">        while(true)</span><br><span class="line">        &#123;</span><br><span class="line">            if(num%2==0||num%3==0)cnt++;</span><br><span class="line">            if(cnt==2333)break;</span><br><span class="line">            num++;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(num);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/markdown/" rel="tag"># markdown</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%8E%86%E4%B8%80/" rel="next" title="JDATA 腾讯广告赛">
+                <i class="fa fa-chevron-left"></i> JDATA 腾讯广告赛
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8Bxgboost%E5%8F%82%E6%95%B0/" rel="prev" title="xgboost参数">
+                xgboost参数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E8%BD%AC%E5%8C%96"><span class="nav-number">1.</span> <span class="nav-text">格式转化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E4%BA%8B%E6%83%85%E6%94%BE%E5%9C%A8%E6%9C%80%E5%90%8E%E2%80%94%E2%80%94markdown%E5%8F%AF%E4%BB%A5%E8%AE%A9%E4%BD%A0%E7%9A%84%E4%BB%A3%E7%A0%81%E6%9B%B4%E5%A5%BD%E7%9C%8B"><span class="nav-number">2.</span> <span class="nav-text">最重要的事情放在最后——markdown可以让你的代码更好看</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">stan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
