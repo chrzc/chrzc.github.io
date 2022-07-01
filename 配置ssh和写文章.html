@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="apk,python," />
+  <meta name="keywords" content="hexo," />
 
 
 
@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="根据apk链接获取apk包名应用名 最近有个需求，根据apk链接获取apk的包名和应用名。  正常手段是这样，下载完整的apk，然后利用apktool解压分析，完事。这样的操作，一方面需要大量时间下载，一方面也浪费磁盘空间（需要解压）。  进一步的思路是，不利用apktool解压。因为apk文件是zip压缩格式，于是我们可以根据zip格式来分析apk二进制文件（不需要解压了）。  现在基本上apk">
+<meta name="description" content="##配置SSH在git中执行下面命令生成SSH  ssh-keygen   敲3次回车 生成id_rsa.pub,记事本打开复制SSH key的内容 打开github，点击setting-SSH keys— Add SSH 把复制的内容粘贴到下面框中，title随便填写  判断SSH是否配置好   ssh -T &amp;#103;&amp;#x69;&amp;#116;&amp;#64;&amp;#103;&amp;#x69;&amp;#x74;&amp;#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="apk链接提取应用名称及包名">
-<meta property="og:url" content="http://regression.cn/2018/09/26/apk%E6%B5%81%E8%A7%A3%E5%8E%8B%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="配置SSH和hexo发布文章">
+<meta property="og:url" content="http://regression.cn/%E9%85%8D%E7%BD%AEssh%E5%92%8C%E5%86%99%E6%96%87%E7%AB%A0.html">
 <meta property="og:site_name" content="stan的博客">
-<meta property="og:description" content="根据apk链接获取apk包名应用名 最近有个需求，根据apk链接获取apk的包名和应用名。  正常手段是这样，下载完整的apk，然后利用apktool解压分析，完事。这样的操作，一方面需要大量时间下载，一方面也浪费磁盘空间（需要解压）。  进一步的思路是，不利用apktool解压。因为apk文件是zip压缩格式，于是我们可以根据zip格式来分析apk二进制文件（不需要解压了）。  现在基本上apk">
+<meta property="og:description" content="##配置SSH在git中执行下面命令生成SSH  ssh-keygen   敲3次回车 生成id_rsa.pub,记事本打开复制SSH key的内容 打开github，点击setting-SSH keys— Add SSH 把复制的内容粘贴到下面框中，title随便填写  判断SSH是否配置好   ssh -T &amp;#103;&amp;#x69;&amp;#116;&amp;#64;&amp;#103;&amp;#x69;&amp;#x74;&amp;#">
 <meta property="og:locale">
-<meta property="article:published_time" content="2018-09-26T02:40:18.000Z">
-<meta property="article:modified_time" content="2018-09-26T02:51:46.000Z">
+<meta property="article:published_time" content="2017-09-25T06:50:18.000Z">
+<meta property="article:modified_time" content="2017-09-30T15:44:24.000Z">
 <meta property="article:author" content="stan">
-<meta property="article:tag" content="apk,python">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://regression.cn/2018/09/26/apk流解压获取信息总结/"/>
+  <link rel="canonical" href="http://regression.cn/配置ssh和写文章.html"/>
 
 
 
 
 
-  <title>apk链接提取应用名称及包名 | stan的博客</title>
+  <title>配置SSH和hexo发布文章 | stan的博客</title>
   
 
 
@@ -233,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://regression.cn/2018/09/26/apk%E6%B5%81%E8%A7%A3%E5%8E%8B%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF%E6%80%BB%E7%BB%93/">
+    <link itemprop="mainEntityOfPage" href="http://regression.cn/%E9%85%8D%E7%BD%AEssh%E5%92%8C%E5%86%99%E6%96%87%E7%AB%A0.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -250,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">apk链接提取应用名称及包名</h1>
+          <h1 class="post-title" itemprop="name headline">配置SSH和hexo发布文章</h1>
         
 
         <div class="post-meta">
@@ -262,8 +262,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-26T10:40:18+08:00">
-                2018-09-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-25T14:50:18+08:00">
+                2017-09-25
               </time>
             
 
@@ -300,98 +300,28 @@
       
 
       
-        <h1 id="根据apk链接获取apk包名应用名"><a href="#根据apk链接获取apk包名应用名" class="headerlink" title="根据apk链接获取apk包名应用名"></a>根据apk链接获取apk包名应用名</h1><ul>
-<li><p>最近有个需求，根据apk链接获取apk的包名和应用名。</p>
-</li>
-<li><p>正常手段是这样，下载完整的apk，然后利用apktool解压分析，完事。这样的操作，一方面需要大量时间下载，一方面也浪费磁盘空间（需要解压）。</p>
-</li>
-<li><p>进一步的思路是，不利用apktool解压。因为apk文件是zip压缩格式，于是我们可以根据zip格式来分析apk二进制文件（不需要解压了）。</p>
-</li>
-<li><p>现在基本上apk都支持流下载，那么我们也可以做个流解压提取我们的信息。</p>
-</li>
-<li><p>查阅apk和zip压缩格式，主要得到以下几个信息。</p>
-</li>
-</ul>
-<p>zip压缩格式:</p>
-<pre><code>本地文件头1
-文件数据1
-数据描述符1
-
-以上重复若干次
-
-本地文件头 n
-文件数据 n
-数据描述符n
-
-archive decryption header(EFS) 
-archive extra data record (EFS)
-中央目录
-zip64的中央目录记录结束
-zip64的中央目录定位结束
-中央目录记录结束
-</code></pre>
-<span id="more"></span>
-
-<p>本地文件头的格式如下:</p>
-<pre><code>本地文件头签名 &amp;ensp;    4个字节（0x04034b50）
-需要提取的版本 &amp;ensp;   2个字节
-通用位标志    &amp;ensp;     2个字节
-压缩方法     &amp;ensp;     2个字节
-最后的mod文件时间 &amp;ensp; 2个字节
-最后的mod文件日期 &amp;ensp; 2个字节
-crc-32          &amp;ensp;  4个字节
-压缩大小   &amp;ensp;       4个字节
-解压缩大小  &amp;ensp;      4个字节
-文件名长度     &amp;ensp;   2个字节
-额外字段长度    &amp;ensp;  2个字节
-</code></pre>
+        <p>##配置SSH<br>在git中执行下面命令生成SSH</p>
+<blockquote>
+<p>ssh-keygen</p>
+</blockquote>
 <ul>
-<li><p>由上述信息，我们知道了，对二进制数据，找到文件头标签即可判断这是个文件开头。注意这是小端存放，因此用 (b’\x50\x4b\x03\x04’)来判定寻找文件头。并且文件的压缩大小也给出了，结合上面的字段既可找到下一个文件的开头，不断循环即可。这样利用requests库的流下载，既可做到迭代寻找下一个新文件对其操作。设置个chunk即可。</p>
-</li>
-<li><p>上面的方法只是解决了不需要解压的问题，如果我们想要的文件在apk存放在靠后位置，依然会浪费比较多的时间，有没有一个更好的方案呢？</p>
-</li>
-<li><p>肯定有，找到如下资料</p>
-<p>Central directory structure:</p>
-<pre><code>[file header 1]
-.
-.
-. 
-[file header n]
-[digital signature] 
-
-File header:
-
-  central file header signature   4 bytes  (0x02014b50)
-  version made by                 2 bytes
-  version needed to extract       2 bytes
-  general purpose bit flag        2 bytes
-  compression method              2 bytes
-  last mod file time              2 bytes
-  last mod file date              2 bytes
-  crc-32                          4 bytes
-  compressed size                 4 bytes
-  uncompressed size               4 bytes
-  file name length                2 bytes
-  extra field length              2 bytes
-  file comment length             2 bytes
-  disk number start               2 bytes
-  internal file attributes        2 bytes
-  external file attributes        4 bytes
-  relative offset of local header 4 bytes
-
-  file name (variable size)
-  extra field (variable size)
-  file comment (variable size)
-</code></pre>
-</li>
+<li>敲3次回车 生成<code>id_rsa.pub</code>,记事本打开复制SSH key的内容</li>
+<li>打开github，点击setting-SSH keys— Add SSH</li>
+<li>把复制的内容粘贴到下面框中，title随便填写</li>
 </ul>
-<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a><strong>总结：</strong></h2><ul>
-<li>可以看出这样就有了文件的起始字段和文件压缩大小，既可以从http请求头部直接定义字段，取到自己需要的文件即可。</li>
-<li>通常情况下AndroidManifest.xml和resources.arsc是我们需要的文件</li>
-<li>apktool解压出来有个string文件，里面有apk的应用名称，通过看apk源码我们可知，是由resource.arsc提取。这两个文件中都含有package name，所以目标找到resource.arsc文件处于的字节段即可。</li>
-<li>方法就有了，我们先发一个请求url链接后1M的数据，拿到中央目录，找到resource.arsc文件对于的url中的位置。这里需要注意一下，找到的起始位置是文件头开始，会有额外字段，因此compressed size需要加个1kb。</li>
-<li>代码整理后另外上传吧 (做成分2部分 1流式下载apk 2根据url提取名称）</li>
-</ul>
+<p>判断SSH是否配置好 </p>
+<blockquote>
+<p>ssh -T <a href="mailto:&#103;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#x68;&#117;&#x62;&#46;&#x63;&#111;&#109;">&#103;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#x68;&#117;&#x62;&#46;&#x63;&#111;&#109;</a></p>
+</blockquote>
+<p>若出现<br><code>Hi XX! You&#39;ve successfully authenticated,but Github does not provide shell access.</code><br>代表配置完成 </p>
+<span id="more"></span>
+<h2 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h2><blockquote>
+<p>hexo new “title”</p>
+</blockquote>
+<p>在本地hexo-&gt;source-&gt;_post目录下可以看到你新建的文章</p>
+<p>之后可以利用markdown编辑器编辑文章 <a target="_blank" rel="noopener" href="http://www.appinn.com/markdown/" title="markdown语法说明（简体中文版）">http://www.appinn.com/markdown/</a></p>
+<p>在文章中插入图片和修改图片，推荐使用图库，域名[sm.ms]</p>
+<p>写好了 在git中依次执行<code>hexo clean hexo generate hexo deploy</code>就可以发布了</p>
 
       
     </div>
@@ -409,7 +339,7 @@ File header:
       
         <div class="post-tags">
           
-            <a href="/tags/apk-python/" rel="tag"># apk,python</a>
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
           
         </div>
       
@@ -422,8 +352,8 @@ File header:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/17/%E9%9A%8F%E7%AC%941/" rel="next" title="2017/10/17随笔">
-                <i class="fa fa-chevron-left"></i> 2017/10/17随笔
+              <a href="/stan-first-blog.html" rel="next" title="如何利用hexo和github建立自己的网站">
+                <i class="fa fa-chevron-left"></i> 如何利用hexo和github建立自己的网站
               </a>
             
           </div>
@@ -432,8 +362,8 @@ File header:
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2022/07/01/ubuntu16.04+cuda8.0+python3+caffe/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B.html" rel="prev" title="分类器评估方法对比">
+                分类器评估方法对比 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -557,7 +487,7 @@ File header:
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AEapk%E9%93%BE%E6%8E%A5%E8%8E%B7%E5%8F%96apk%E5%8C%85%E5%90%8D%E5%BA%94%E7%94%A8%E5%90%8D"><span class="nav-number">1.</span> <span class="nav-text">根据apk链接获取apk包名应用名</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">总结：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0"><span class="nav-number">1.</span> <span class="nav-text">发布文章</span></a></li></ol></div>
             
 
           </div>
